@@ -25,9 +25,6 @@
   let activeSectionIndex = -1;
 
   // --- DOM ---
-  const loader = document.getElementById('loader');
-  const loaderFill = document.getElementById('loader-fill');
-  const loaderText = document.getElementById('loader-text');
   const heroWrapper = document.getElementById('hero-wrapper');
   const hero = document.getElementById('hero');
   const canvasWrap = document.getElementById('canvas-wrap');
@@ -81,9 +78,6 @@
       img.onload = () => {
         frames[index] = img;
         loadedCount++;
-        const pct = Math.round((loadedCount / FRAME_COUNT) * 100);
-        loaderFill.style.width = pct + '%';
-        loaderText.textContent = pct + '%';
         resolve();
       };
       img.onerror = () => { loadedCount++; resolve(); };
@@ -92,18 +86,22 @@
   }
 
   async function preloadFrames() {
+    // 1. Initial frames for visual continuity
     const first = [];
-    for (let i = 0; i < Math.min(10, FRAME_COUNT); i++) first.push(loadFrame(i));
+    for (let i = 0; i < Math.min(6, FRAME_COUNT); i++) first.push(loadFrame(i));
     await Promise.all(first);
     if (frames[0]) drawFrame(0);
-    for (let i = 10; i < FRAME_COUNT; i += BATCH_SIZE) {
+
+    // 2. Initialize animations immediately to improve WPO
+    isReady = true;
+    initAnimations();
+
+    // 3. Background preloading of remaining frames
+    for (let i = 6; i < FRAME_COUNT; i += BATCH_SIZE) {
       const batch = [];
       for (let j = i; j < Math.min(i + BATCH_SIZE, FRAME_COUNT); j++) batch.push(loadFrame(j));
       await Promise.all(batch);
     }
-    isReady = true;
-    loader.classList.add('hidden');
-    initAnimations();
   }
 
   // --- Lenis ---
