@@ -113,17 +113,34 @@ button { cursor: pointer; border: none; font-family: inherit; }
 }
 .site-header .logo { height: 32px; filter: brightness(10); }
 .header-cta {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: white;
-  padding: 12px 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 16px 10px 24px;
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 100px;
   transition: var(--transition);
+  text-decoration: none;
 }
-.header-cta:hover { background: white; color: var(--bg-dark); }
+.header-cta:hover { 
+  background: rgba(255, 255, 255, 0.15); 
+  border-color: rgba(255,255,255,0.6);
+}
+.cta-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+.cta-text span {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  color: white;
+  text-transform: uppercase;
+}
 .mobile-wa-cta { display: none; }
 
 /* Nav Links */
@@ -1188,7 +1205,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
   }
   .mobile-menu-btn {
     display: flex;
-    order: 1;
+    order: -1; /* Left */
   }
   .desktop-cta {
     display: none;
@@ -1197,20 +1214,24 @@ button { cursor: pointer; border: none; font-family: inherit; }
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 36px;
-    background: rgba(0, 0, 0, 0.85);
-    border-radius: 100px;
+    width: 44px;
+    height: 44px;
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.4);
+    border-radius: 50%;
     transition: var(--transition);
-    order: -1;
+    order: 1; /* Right */
   }
   .mobile-wa-cta:hover {
-    background: var(--bg-dark);
+    background: var(--green);
     transform: scale(1.05);
   }
   .mobile-wa-cta svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
+    fill: var(--green-light);
+  }
+  .mobile-wa-cta:hover svg {
     fill: white;
   }
 }
