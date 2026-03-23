@@ -1235,3 +1235,156 @@ button { cursor: pointer; border: none; font-family: inherit; }
     fill: white;
   }
 }
+
+/* ============================================
+   BOTTOM STICKY BAR (Delayed 10s)
+   ============================================ */
+.bottom-sticky-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 150px);
+  z-index: 999;
+  width: calc(100% - 48px);
+  max-width: 600px;
+  background: rgba(13, 27, 30, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  padding: 10px 10px 10px 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.bottom-sticky-bar.visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.sticky-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sticky-call {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+  transition: var(--transition);
+}
+.sticky-call:hover {
+  opacity: 0.8;
+}
+.sticky-call-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.sticky-call-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sticky-call-text {
+  display: flex;
+  flex-direction: column;
+}
+.sticky-call-label {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.sticky-call-number {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: white;
+}
+.sticky-catalog {
+  background: var(--green-light);
+  color: var(--bg-dark);
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+.sticky-catalog:hover {
+  background: white;
+  transform: scale(1.02);
+}
+.sticky-catalog svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 768px) {
+  .bottom-sticky-bar {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    transform: translate(0, 100%);
+    border-radius: 24px 24px 0 0;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 24px 20px 20px;
+    background: #0b1517; /* Darker solid color matching image */
+  }
+  .bottom-sticky-bar.visible {
+    transform: translate(0, 0);
+  }
+  .sticky-bar-inner {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .sticky-call {
+    width: 100%;
+    justify-content: center;
+    background: transparent;
+    padding: 2px 0;
+  }
+  .sticky-call-text {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  .sticky-call-label {
+    display: none; /* Hide label to save space, just show phone number like "Llámanos 314..." */
+  }
+  .sticky-catalog {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 20px;
+  }
+  .wa-float {
+    z-index: 1001; /* Ensure WA float stays above sticky bar */
+    bottom: 120px; /* Push WA button slightly up on mobile if bar is visible? Done via JS or just CSS. Let's just adjust it via CSS if the bar is visible */
+  }
+}
