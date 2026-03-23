@@ -171,10 +171,10 @@
 
   initMobileMenu();
 
-  // Show bottom sticky bar after 2 seconds
+  // Show bottom sticky bar after 10 seconds
   setTimeout(() => {
     const stickyBar = document.getElementById('bottom-sticky-bar');
     if (stickyBar) stickyBar.classList.add('visible');
-  }, 2000);
+  }, 10000);
 
 })();
