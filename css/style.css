@@ -1181,8 +1181,14 @@ button { cursor: pointer; border: none; font-family: inherit; }
   .nav-link {
     font-size: 1.2rem;
   }
+  .logo-link {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
   .mobile-menu-btn {
     display: flex;
+    order: 1;
   }
   .desktop-cta {
     display: none;
@@ -1191,18 +1197,20 @@ button { cursor: pointer; border: none; font-family: inherit; }
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: var(--green-light);
-    border-radius: 50%;
+    width: 60px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.85);
+    border-radius: 100px;
     transition: var(--transition);
+    order: -1;
   }
   .mobile-wa-cta:hover {
-    background: var(--green);
+    background: var(--bg-dark);
     transform: scale(1.05);
   }
   .mobile-wa-cta svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
+    fill: white;
   }
 }
