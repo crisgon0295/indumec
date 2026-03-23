@@ -1,0 +1,226 @@
+{
+  "pages": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"pages\":[{\"post_id\":7,\"title\":\"Home\",\"type\":\"page\",\"status\":\"publish\",\"modified\":\"2026-03-19 22:27:27\"}]}"
+      }
+    ],
+    "structuredContent": {
+      "pages": [
+        {
+          "post_id": 7,
+          "title": "Home",
+          "type": "page",
+          "status": "publish",
+          "modified": "2026-03-19 22:27:27"
+        }
+      ]
+    }
+  },
+  "structure": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"post_id\":7,\"title\":\"Home\",\"type\":\"wp-page\",\"structure\":[{\"id\":\"9689290\",\"elType\":\"container\",\"settings_summary\":{\"flex_direction\":\"row\",\"content_width\":\"full\"},\"elements\":[{\"id\":\"617ace1\",\"elType\":\"container\",\"settings_summary\":{\"flex_direction\":\"column\",\"content_width\":\"full\"},\"elements\":[{\"id\":\"cc066f8\",\"elType\":\"widget\",\"widgetType\":\"heading\",\"settings_summary\":{\"title\":\"Mangueras y Acoples Industriales en Bogot\\u00e1\",\"header_size\":\"h1\"}},{\"id\":\"1679361\",\"elType\":\"widget\",\"widgetType\":\"heading\",\"settings_summary\":{\"title\":\"Mangueras y acoples certificados para industrias que no pueden parar.\"}},{\"id\":\"db453c6\",\"elType\":\"widget\",\"widgetType\":\"text-editor\",\"settings_summary\":{\"editor\":\"Te ayudamos a encontrar la referencia correcta, cotizar r\\u00e1pido y despachar sin demoras innecesarias...\"}},{\"id\":\"8e94e7d\",\"elType\":\"container\",\"settings_summary\":{\"flex_direction\":\"row\",\"content_width\":\"full\"},\"elements\":[{\"id\":\"b7640c4\",\"elType\":\"widget\",\"widgetType\":\"button\",\"settings_summary\":{\"text\":\"Cotizar por WhatsApp\"}},{\"id\":\"603f497\",\"elType\":\"widget\",\"widgetType\":\"button\",\"settings_summary\":{\"text\":\"Solicitar asesor\\u00eda inmediata\"}}]},{\"id\":\"d8df798\",\"elType\":\"widget\",\"widgetType\":\"heading\",\"settings_summary\":{\"title\":\"Env\\u00edanos una foto o medida y te ayudamos de inmediato.\\n\\n\",\"header_size\":\"p\"}}]},{\"id\":\"9777305\",\"elType\":\"container\",\"settings_summary\":{\"flex_direction\":\"column\",\"content_width\":\"full\"}}]}]}"
+      }
+    ],
+    "structuredContent": {
+      "post_id": 7,
+      "title": "Home",
+      "type": "wp-page",
+      "structure": [
+        {
+          "id": "9689290",
+          "elType": "container",
+          "settings_summary": {
+            "flex_direction": "row",
+            "content_width": "full"
+          },
+          "elements": [
+            {
+              "id": "617ace1",
+              "elType": "container",
+              "settings_summary": {
+                "flex_direction": "column",
+                "content_width": "full"
+              },
+              "elements": [
+                {
+                  "id": "cc066f8",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings_summary": {
+                    "title": "Mangueras y Acoples Industriales en Bogotá",
+                    "header_size": "h1"
+                  }
+                },
+                {
+                  "id": "1679361",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings_summary": {
+                    "title": "Mangueras y acoples certificados para industrias que no pueden parar."
+                  }
+                },
+                {
+                  "id": "db453c6",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings_summary": {
+                    "editor": "Te ayudamos a encontrar la referencia correcta, cotizar rápido y despachar sin demoras innecesarias..."
+                  }
+                },
+                {
+                  "id": "8e94e7d",
+                  "elType": "container",
+                  "settings_summary": {
+                    "flex_direction": "row",
+                    "content_width": "full"
+                  },
+                  "elements": [
+                    {
+                      "id": "b7640c4",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings_summary": {
+                        "text": "Cotizar por WhatsApp"
+                      }
+                    },
+                    {
+                      "id": "603f497",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings_summary": {
+                        "text": "Solicitar asesoría inmediata"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "d8df798",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings_summary": {
+                    "title": "Envíanos una foto o medida y te ayudamos de inmediato.\n\n",
+                    "header_size": "p"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "9777305",
+              "elType": "container",
+              "settings_summary": {
+                "flex_direction": "column",
+                "content_width": "full"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "toolNames": [
+    "elementor-mcp-list-widgets",
+    "elementor-mcp-get-widget-schema",
+    "elementor-mcp-get-container-schema",
+    "elementor-mcp-get-page-structure",
+    "elementor-mcp-get-element-settings",
+    "elementor-mcp-find-element",
+    "elementor-mcp-list-pages",
+    "elementor-mcp-list-templates",
+    "elementor-mcp-get-global-settings",
+    "elementor-mcp-create-page",
+    "elementor-mcp-update-page-settings",
+    "elementor-mcp-delete-page-content",
+    "elementor-mcp-import-template",
+    "elementor-mcp-export-page",
+    "elementor-mcp-add-container",
+    "elementor-mcp-update-container",
+    "elementor-mcp-update-element",
+    "elementor-mcp-batch-update",
+    "elementor-mcp-reorder-elements",
+    "elementor-mcp-move-element",
+    "elementor-mcp-remove-element",
+    "elementor-mcp-duplicate-element",
+    "elementor-mcp-add-widget",
+    "elementor-mcp-update-widget",
+    "elementor-mcp-add-heading",
+    "elementor-mcp-add-text-editor",
+    "elementor-mcp-add-image",
+    "elementor-mcp-add-button",
+    "elementor-mcp-add-video",
+    "elementor-mcp-add-icon",
+    "elementor-mcp-add-spacer",
+    "elementor-mcp-add-divider",
+    "elementor-mcp-add-icon-box",
+    "elementor-mcp-add-accordion",
+    "elementor-mcp-add-alert",
+    "elementor-mcp-add-counter",
+    "elementor-mcp-add-google-maps",
+    "elementor-mcp-add-icon-list",
+    "elementor-mcp-add-image-box",
+    "elementor-mcp-add-image-carousel",
+    "elementor-mcp-add-progress",
+    "elementor-mcp-add-social-icons",
+    "elementor-mcp-add-star-rating",
+    "elementor-mcp-add-tabs",
+    "elementor-mcp-add-testimonial",
+    "elementor-mcp-add-toggle",
+    "elementor-mcp-add-html",
+    "elementor-mcp-add-menu-anchor",
+    "elementor-mcp-add-shortcode",
+    "elementor-mcp-add-rating",
+    "elementor-mcp-add-text-path",
+    "elementor-mcp-add-form",
+    "elementor-mcp-add-posts-grid",
+    "elementor-mcp-add-countdown",
+    "elementor-mcp-add-price-table",
+    "elementor-mcp-add-flip-box",
+    "elementor-mcp-add-animated-headline",
+    "elementor-mcp-add-call-to-action",
+    "elementor-mcp-add-slides",
+    "elementor-mcp-add-testimonial-carousel",
+    "elementor-mcp-add-price-list",
+    "elementor-mcp-add-gallery",
+    "elementor-mcp-add-share-buttons",
+    "elementor-mcp-add-table-of-contents",
+    "elementor-mcp-add-blockquote",
+    "elementor-mcp-add-lottie",
+    "elementor-mcp-add-hotspot",
+    "elementor-mcp-add-nav-menu",
+    "elementor-mcp-add-loop-grid",
+    "elementor-mcp-add-loop-carousel",
+    "elementor-mcp-add-media-carousel",
+    "elementor-mcp-add-nested-tabs",
+    "elementor-mcp-add-nested-accordion",
+    "elementor-mcp-add-portfolio",
+    "elementor-mcp-add-author-box",
+    "elementor-mcp-add-login",
+    "elementor-mcp-add-code-highlight",
+    "elementor-mcp-add-reviews",
+    "elementor-mcp-add-off-canvas",
+    "elementor-mcp-add-progress-tracker",
+    "elementor-mcp-add-search",
+    "elementor-mcp-save-as-template",
+    "elementor-mcp-apply-template",
+    "elementor-mcp-create-theme-template",
+    "elementor-mcp-set-template-conditions",
+    "elementor-mcp-list-dynamic-tags",
+    "elementor-mcp-set-dynamic-tag",
+    "elementor-mcp-create-popup",
+    "elementor-mcp-set-popup-settings",
+    "elementor-mcp-update-global-colors",
+    "elementor-mcp-update-global-typography",
+    "elementor-mcp-build-page",
+    "elementor-mcp-search-images",
+    "elementor-mcp-sideload-image",
+    "elementor-mcp-add-stock-image",
+    "elementor-mcp-upload-svg-icon",
+    "elementor-mcp-add-custom-js",
+    "elementor-mcp-add-custom-css",
+    "elementor-mcp-add-code-snippet",
+    "elementor-mcp-list-code-snippets"
+  ]
+}

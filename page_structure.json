@@ -1,0 +1,18 @@
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"post_id\":7,\"title\":\"Mangueras y Acoples Industriales en Bogot\\u00e1 | Indumec\",\"type\":\"wp-page\",\"structure\":[]}"
+      }
+    ],
+    "structuredContent": {
+      "post_id": 7,
+      "title": "Mangueras y Acoples Industriales en Bogotá | Indumec",
+      "type": "wp-page",
+      "structure": []
+    }
+  }
+}

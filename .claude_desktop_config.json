@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+        "elementor-mcp": {
+            "type": "http",
+            "url": "https://indumec.com.co/wp-json/mcp/elementor-mcp-server",
+            "headers": {
+                "Authorization": "Basic Z2NyaXN0aWFuOTE1QGdtYWlsLmNvbTpQd0I0IHI1RVogVWVwUyBmWklZIEZ1aE8gS09yNw=="
+            }
+        }
+    }
+}
