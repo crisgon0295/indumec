@@ -481,11 +481,11 @@
     initContactForm();
     initMobileMenu();
 
-    // Show bottom sticky bar after 10 seconds
+    // Show bottom sticky bar after 2 seconds for testing (previously 10s)
     setTimeout(() => {
       const stickyBar = document.getElementById('bottom-sticky-bar');
       if (stickyBar) stickyBar.classList.add('visible');
-    }, 10000);
+    }, 2000);
   }
 
   if (document.readyState === 'loading') {
