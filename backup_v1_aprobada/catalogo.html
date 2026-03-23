@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogo de Mangueras y Acoples Industriales | Indumec Bogota</title>
+  <meta name="description" content="Catalogo completo de mangueras hidraulicas, acoples industriales, mangueras para combustibles, vapor, succion y contra incendio. Despacho inmediato en Bogota.">
+  <meta name="keywords" content="mangueras hidraulicas SAE 100, acoples industriales, mangueras de vapor, mangueras contra incendio NFPA, mangueras grado alimenticio, mangueras para combustibles, catalogo industrial Bogota, Indumec">
+  <meta property="og:title" content="Catalogo de Mangueras y Acoples Industriales | Indumec">
+  <meta property="og:description" content="Encuentra la manguera o acople exacto para tu industria. Catalogo tecnico con despacho inmediato en Bogota.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://indumec.com.co/catalogo">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body class="catalog-body">
+
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    
+    <a href="index.html" class="logo-link"><img src="assets/logo-white.png" alt="Indumec - Mangueras y Acoples Industriales" class="logo"></a>
+    
+    <nav class="site-nav" id="site-nav">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a href="catalogo.html" class="nav-link" style="color:white; border-bottom: 2px solid var(--green-glow);">Catalogo</a>
+      <a href="index.html#porque" class="nav-link">Nosotros</a>
+      <a href="index.html#contacto" class="nav-link">Contacto</a>
+    </nav>
+    
+    <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20productos%20del%20catalogo%20Indumec" class="header-cta desktop-cta" target="_blank">
+      <div class="cta-text">
+        <span>COTIZAR</span>
+        <span>AHORA</span>
+      </div>
+      <svg class="cta-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
+    <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20productos%20del%20catalogo%20Indumec" class="mobile-wa-cta" target="_blank" aria-label="WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.556-5.333 11.888-11.888 11.888-2.01 0-3.986-.51-5.742-1.477l-6.142 1.7zm6.392-3.873c1.552.921 3.326 1.41 5.14 1.41 4.636 0 8.41-3.773 8.41-8.41 0-2.247-.874-4.358-2.46-5.945-1.588-1.588-3.7-2.462-5.948-2.462-4.636 0-8.41 3.774-8.41 8.41 0 1.903.644 3.753 1.826 5.24l.277.397-.946 3.453 3.54-.929.571.236z"/></svg>
+    </a>
+  </header>
+
+  <!-- CATALOG HERO -->
+  <section class="cat-hero">
+    <div class="cat-hero-bg"></div>
+    <div class="cat-hero-inner">
+      <span class="pill-badge">Catalogo tecnico industrial</span>
+      <h1 class="cat-hero-title">Mangueras y acoples<br>para cada industria</h1>
+      <p class="cat-hero-sub">Encuentra la solucion exacta para tu operacion. Sin esperas, con asesoria tecnica y despacho inmediato en Bogota.</p>
+      <!-- Search Bar -->
+      <div class="cat-search-wrap">
+        <svg class="cat-search-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="cat-search" class="cat-search-input" placeholder="Buscar por nombre, referencia o aplicacion..." autocomplete="off">
+        <span class="cat-search-hint" id="cat-search-count"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY FILTERS -->
+  <div class="cat-filters-bar" id="cat-filters">
+    <div class="cat-filters-inner">
+      <button class="cat-filter active" data-filter="all">Todos</button>
+      <button class="cat-filter" data-filter="hidraulica">Hidraulica</button>
+      <button class="cat-filter" data-filter="aire-agua">Aire y Agua</button>
+      <button class="cat-filter" data-filter="combustibles">Combustibles</button>
+      <button class="cat-filter" data-filter="succion">Succion y Riego</button>
+      <button class="cat-filter" data-filter="alimenticia">Grado Alimenticio</button>
+      <button class="cat-filter" data-filter="incendio">Contra Incendio</button>
+    </div>
+  </div>
+
+  <!-- CATALOG GRID -->
+  <main class="cat-main">
+    <div class="cat-grid" id="cat-grid">
+
+      <!-- ==========================================
+           CATEGORY 1: HIDRAULICA & ALTA PRESION
+           ========================================== -->
+      <div class="cat-category-header" data-category="hidraulica" id="sec-hidraulica">
+        <div class="cat-cat-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <div>
+          <h2>Mangueras Hidraulicas y Alta Presion</h2>
+          <p>Soluciones certificadas SAE para circuitos hidraulicos exigentes, maquinaria pesada y sistemas de alta presion.</p>
+        </div>
+      </div>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20hidraulica%20SAE%20100%20R2%20para%20circuito%20hidraulico" target="_blank" class="cat-card" data-category="hidraulica" data-keywords="manguera hidraulica R2 SAE 100 doble malla alta presion maquinaria pesada">
+        <div class="cat-card-badge">SAE 100 R2</div>
+        <h3 class="cat-card-title">Manguera Hidraulica R2</h3>
+        <p class="cat-card-desc">Doble refuerzo de malla de acero trenzado para circuitos hidraulicos exigentes en maquinaria pesada, excavadoras y prensas industriales.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Presion:</strong> Hasta 5,000 PSI</span>
+          <span class="cat-spec"><strong>Diametros:</strong> 1/4" a 2"</span>
+          <span class="cat-spec"><strong>Norma:</strong> SAE 100 R2AT</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Mineria</span><span>Construccion</span><span>Manufactura</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20hidraulica%20SAE%20100%20R1%20para%20mantenimiento" target="_blank" class="cat-card" data-category="hidraulica" data-keywords="manguera hidraulica R1 SAE 100 mantenimiento aceite lineas hidraulicas">
+        <div class="cat-card-badge">SAE 100 R1</div>
+        <h3 class="cat-card-title">Manguera Hidraulica R1</h3>
+        <p class="cat-card-desc">Refuerzo de malla de acero simple. Estandar para mantenimiento hidraulico, lineas de aceite y circuitos de media presion.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Presion:</strong> Hasta 3,000 PSI</span>
+          <span class="cat-spec"><strong>Diametros:</strong> 1/4" a 1"</span>
+          <span class="cat-spec"><strong>Norma:</strong> SAE 100 R1AT</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Manufactura</span><span>Automotriz</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20SAE%20100%20R6%20para%20lubricacion%20y%20combustible" target="_blank" class="cat-card" data-category="hidraulica" data-keywords="manguera R6 SAE 100 baja presion lubricacion combustible flexible">
+        <div class="cat-card-badge">SAE 100 R6</div>
+        <h3 class="cat-card-title">Manguera Flexible R6</h3>
+        <p class="cat-card-desc">Alta flexibilidad para lineas de baja presion, lubricacion industrial y conduccion de combustibles en maquinaria liviana.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Presion:</strong> Hasta 500 PSI</span>
+          <span class="cat-spec"><strong>Diametros:</strong> 1/4" a 1/2"</span>
+          <span class="cat-spec"><strong>Norma:</strong> SAE 100 R6</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Automotriz</span><span>Manufactura</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20SAE%20100%20R5%20para%20fluidos%20a%20base%20de%20petroleo" target="_blank" class="cat-card" data-category="hidraulica" data-keywords="manguera R5 SAE 100 petroleo diesel aceite fluidos robusta">
+        <div class="cat-card-badge">SAE 100 R5</div>
+        <h3 class="cat-card-title">Manguera R5 Petrolera</h3>
+        <p class="cat-card-desc">Alternativa robusta para conduccion de fluidos a base de petroleo, diesel y aceites industriales con alta resistencia quimica.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Presion:</strong> Hasta 3,000 PSI</span>
+          <span class="cat-spec"><strong>Diametros:</strong> 3/16" a 1"</span>
+          <span class="cat-spec"><strong>Norma:</strong> SAE 100 R5</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Petroleo</span><span>Energia</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20termoplastica%20R7%20para%20construccion" target="_blank" class="cat-card" data-category="hidraulica" data-keywords="manguera R7 termoplastica no conductiva abrasion construccion agricultura">
+        <div class="cat-card-badge">Termoplastica</div>
+        <h3 class="cat-card-title">Manguera Termoplastica R7</h3>
+        <p class="cat-card-desc">No conductiva y resistente a la abrasion. Ideal para equipos de construccion, agricultura y aplicaciones con riesgo electrico.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Presion:</strong> Hasta 2,750 PSI</span>
+          <span class="cat-spec"><strong>Tipo:</strong> No conductiva</span>
+          <span class="cat-spec"><strong>Norma:</strong> SAE 100 R7</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Construccion</span><span>Agricultura</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20PTFE%20R115%20para%20quimicos%20y%20temperatura%20extrema" target="_blank" class="cat-card" data-category="hidraulica" data-keywords="manguera PTFE R115 acero inoxidable temperatura extrema quimicos corrosivos teflon">
+        <div class="cat-card-badge cat-card-badge-premium">PTFE Premium</div>
+        <h3 class="cat-card-title">Manguera PTFE / Acero Inoxidable R115</h3>
+        <p class="cat-card-desc">Para temperaturas extremas y fluidos altamente corrosivos. Tubo de teflon con refuerzo en malla de acero inoxidable.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Temp:</strong> -54°C a +232°C</span>
+          <span class="cat-spec"><strong>Material:</strong> PTFE + Inox</span>
+          <span class="cat-spec"><strong>Norma:</strong> SAE 100 R14</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Quimica</span><span>Farmaceutica</span><span>Alimentos</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <!-- ==========================================
+           CATEGORY 2: AIRE, AGUA Y VAPOR
+           ========================================== -->
+      <div class="cat-category-header" data-category="aire-agua" id="sec-aire-agua">
+        <div class="cat-cat-icon icon-blue">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        </div>
+        <div>
+          <h2>Mangueras para Aire, Agua y Vapor</h2>
+          <p>Mangueras multiproposito y de vapor para compresores, mineria, calderas y procesos termicos industriales.</p>
+        </div>
+      </div>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20multiproposito%20Odyssey%20300%20PSI%20para%20aire%20y%20agua" target="_blank" class="cat-card" data-category="aire-agua" data-keywords="manguera multiproposito Odyssey 300 PSI aire agua compresores mineria construccion">
+        <div class="cat-card-badge badge-blue">300 PSI</div>
+        <h3 class="cat-card-title">Manguera Odyssey Multiproposito</h3>
+        <p class="cat-card-desc">Manguera industrial multiuso para conduccion de aire comprimido y agua en obras de construccion, mineria y equipos de compresion.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Presion:</strong> 300 PSI</span>
+          <span class="cat-spec"><strong>Uso:</strong> Aire / Agua</span>
+          <span class="cat-spec"><strong>Tipo:</strong> Multiproposito</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Construccion</span><span>Mineria</span><span>Compresores</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20de%20caucho%20y%20lona%20300%20PSI%20para%20uso%20industrial" target="_blank" class="cat-card" data-category="aire-agua" data-keywords="manguera caucho lona 300 PSI planta industrial general">
+        <div class="cat-card-badge badge-blue">Industrial</div>
+        <h3 class="cat-card-title">Manguera Caucho y Lona 300 PSI</h3>
+        <p class="cat-card-desc">Manguera de uso general para planta industrial. Construccion en caucho con refuerzo textil para aire comprimido y agua.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Presion:</strong> 300 PSI</span>
+          <span class="cat-spec"><strong>Material:</strong> Caucho + Lona</span>
+          <span class="cat-spec"><strong>Uso:</strong> General planta</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Manufactura</span><span>General</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20de%20vapor%20EPDM%20para%20caldera%20y%20procesos%20termicos" target="_blank" class="cat-card" data-category="aire-agua" data-keywords="manguera vapor EPDM BS5342 caldera temperatura alta procesos termicos saturado">
+        <div class="cat-card-badge badge-red">Vapor 232°C</div>
+        <h3 class="cat-card-title">Manguera de Vapor EPDM</h3>
+        <p class="cat-card-desc">Manguera para vapor saturado a alta temperatura. Diseñada para calderas, autoclaves y procesos termicos industriales hasta 232°C.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Temp:</strong> Hasta 232°C</span>
+          <span class="cat-spec"><strong>Material:</strong> EPDM</span>
+          <span class="cat-spec"><strong>Norma:</strong> BS5342-2A</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Alimentos</span><span>Quimica</span><span>Textil</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <!-- ==========================================
+           CATEGORY 3: COMBUSTIBLES
+           ========================================== -->
+      <div class="cat-category-header" data-category="combustibles" id="sec-combustibles">
+        <div class="cat-cat-icon icon-orange">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+        </div>
+        <div>
+          <h2>Mangueras para Combustibles</h2>
+          <p>Mangueras de nitrilo certificadas para gasolina, diesel, aceites y transferencia segura de hidrocarburos.</p>
+        </div>
+      </div>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20dispensadora%20de%20gasolina%201%20pulgada" target="_blank" class="cat-card" data-category="combustibles" data-keywords="manguera gasolina dispensadora 1 pulgada nitrilo estacion servicio combustible">
+        <div class="cat-card-badge badge-orange">Gasolina</div>
+        <h3 class="cat-card-title">Manguera Dispensadora de Gasolina 1"</h3>
+        <p class="cat-card-desc">Tubo de nitrilo resistente a combustibles, llama e intemperie. Para estaciones de servicio y puntos de dispensacion de gasolina.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Diametro:</strong> 1"</span>
+          <span class="cat-spec"><strong>Material:</strong> Nitrilo</span>
+          <span class="cat-spec"><strong>Uso:</strong> Estaciones</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Estaciones</span><span>Combustibles</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20de%20succion%20y%20descarga%20de%20combustible%202%20pulgadas" target="_blank" class="cat-card" data-category="combustibles" data-keywords="manguera succion descarga combustible 2 pulgadas 150 PSI diesel aceite transferencia industrial">
+        <div class="cat-card-badge badge-orange">150 PSI</div>
+        <h3 class="cat-card-title">Manguera Succion y Descarga Combustible 2"</h3>
+        <p class="cat-card-desc">Manguera industrial de 150 PSI para transferencia de gasolina, diesel y aceites en operaciones de carga y descarga a granel.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Presion:</strong> 150 PSI</span>
+          <span class="cat-spec"><strong>Diametro:</strong> 2"</span>
+          <span class="cat-spec"><strong>Uso:</strong> Transferencia</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Petroleo</span><span>Logistica</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <!-- ==========================================
+           CATEGORY 4: SUCCION, DESCARGA Y RIEGO
+           ========================================== -->
+      <div class="cat-category-header" data-category="succion" id="sec-succion">
+        <div class="cat-cat-icon icon-teal">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        </div>
+        <div>
+          <h2>Mangueras de Succion, Descarga y Riego</h2>
+          <p>Mangueras reforzadas para motobombas, transferencia de agua a gran escala, drenaje y riego agricola.</p>
+        </div>
+      </div>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20de%20motobomba%202%20pulgadas%20con%20acoples" target="_blank" class="cat-card" data-category="succion" data-keywords="manguera motobomba 2 pulgadas succion acoples metalicos bomba agua">
+        <div class="cat-card-badge badge-teal">Motobomba</div>
+        <h3 class="cat-card-title">Manguera Motobomba 2" x 4.5m</h3>
+        <p class="cat-card-desc">Manguera de succion de servicio pesado con acoples metalicos incluidos. Lista para conectar a motobombas y equipos de bombeo.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Diametro:</strong> 2"</span>
+          <span class="cat-spec"><strong>Largo:</strong> 4.5 metros</span>
+          <span class="cat-spec"><strong>Incluye:</strong> Acoples</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Agricultura</span><span>Construccion</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20corrugada%20de%20succion%204%20pulgadas%20para%20agua" target="_blank" class="cat-card" data-category="succion" data-keywords="manguera corrugada succion 4 pulgadas agua RAIN gran escala transferencia">
+        <div class="cat-card-badge badge-teal">4 Pulgadas</div>
+        <h3 class="cat-card-title">Manguera Corrugada de Succion 4"</h3>
+        <p class="cat-card-desc">Manguera de alta resistencia corrugada tipo RAIN para succion de agua a gran escala en obras, mineria y riego industrial.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Diametro:</strong> 4"</span>
+          <span class="cat-spec"><strong>Tipo:</strong> Corrugada</span>
+          <span class="cat-spec"><strong>Uso:</strong> Succion pesada</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Mineria</span><span>Construccion</span><span>Riego</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20Layflat%20PVC%20para%20drenaje%20y%20agricultura" target="_blank" class="cat-card" data-category="succion" data-keywords="manguera Layflat PVC drenaje agricultura riego plana portatil IMEKFLEX">
+        <div class="cat-card-badge badge-teal">Layflat</div>
+        <h3 class="cat-card-title">Manguera Layflat PVC (IMEKFLEX)</h3>
+        <p class="cat-card-desc">Manguera plana portatil de facil almacenamiento para drenaje, riego agricola y descarga de agua. Disponible de 60 a 150 PSI.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Presion:</strong> 60 - 150 PSI</span>
+          <span class="cat-spec"><strong>Material:</strong> PVC</span>
+          <span class="cat-spec"><strong>Tipo:</strong> Plana portatil</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Agricultura</span><span>Drenaje</span><span>Emergencias</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <!-- ==========================================
+           CATEGORY 5: GRADO ALIMENTICIO Y QUIMICOS
+           ========================================== -->
+      <div class="cat-category-header" data-category="alimenticia" id="sec-alimenticia">
+        <div class="cat-cat-icon icon-emerald">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div>
+          <h2>Mangueras Grado Alimenticio y Quimicos</h2>
+          <p>Mangueras FDA, atoxico y UHMWPE para lacteos, bebidas, aceites comestibles, acidos y solventes industriales.</p>
+        </div>
+      </div>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20transparente%20grado%20alimenticio%20con%20espiral%20de%20acero" target="_blank" class="cat-card" data-category="alimenticia" data-keywords="manguera transparente grado alimenticio FDA espiral acero leche aceites lacteos">
+        <div class="cat-card-badge badge-emerald">FDA</div>
+        <h3 class="cat-card-title">Manguera Transparente con Espiral de Acero</h3>
+        <p class="cat-card-desc">Manguera grado alimenticio FDA, atoxica y transparente. Ideal para conduccion de leche, aceites comestibles y liquidos en plantas de alimentos.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Grado:</strong> Alimenticio FDA</span>
+          <span class="cat-spec"><strong>Refuerzo:</strong> Espiral acero</span>
+          <span class="cat-spec"><strong>Uso:</strong> Lacteos / Aceites</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Alimentos</span><span>Lacteos</span><span>Bebidas</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20PVC%20espiral%20para%20succion%20de%20aire%20y%20liquidos" target="_blank" class="cat-card" data-category="alimenticia" data-keywords="manguera PVC espiral aire vacio succion particulas liquidos no grasos bebidas">
+        <div class="cat-card-badge badge-emerald">Espiral PVC</div>
+        <h3 class="cat-card-title">Manguera PVC Espiral Aire/Vacio</h3>
+        <p class="cat-card-desc">Para succion de particulas y transferencia de liquidos no grasos. Ideal para lineas de bebidas y sistemas de vacio industrial.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Material:</strong> PVC Espiral</span>
+          <span class="cat-spec"><strong>Uso:</strong> Succion / Vacio</span>
+          <span class="cat-spec"><strong>Tipo:</strong> No grasos</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Bebidas</span><span>Farmaceutica</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20blanca%20de%20caucho%20grado%20alimenticio%20para%20lacteos" target="_blank" class="cat-card" data-category="alimenticia" data-keywords="manguera blanca caucho grado alimenticio lacteos planta procesamiento succion descarga">
+        <div class="cat-card-badge badge-emerald">Caucho Blanco</div>
+        <h3 class="cat-card-title">Manguera Caucho Blanco Grado Alimenticio</h3>
+        <p class="cat-card-desc">Manguera de caucho blanco sanitario para succion y descarga en plantas de procesamiento de lacteos, jugos y alimentos liquidos.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Material:</strong> Caucho blanco</span>
+          <span class="cat-spec"><strong>Grado:</strong> Alimenticio</span>
+          <span class="cat-spec"><strong>Uso:</strong> Succion/Descarga</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Lacteos</span><span>Alimentos</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20quimica%20UHMWPE%20para%20acidos%20y%20solventes" target="_blank" class="cat-card" data-category="alimenticia" data-keywords="manguera quimica UHMWPE acidos solventes laboratorio planta quimica descarga agresivos">
+        <div class="cat-card-badge badge-purple">Quimica UHMWPE</div>
+        <h3 class="cat-card-title">Manguera Quimica UHMWPE</h3>
+        <p class="cat-card-desc">Manguera de ultra alto peso molecular para descarga de acidos agresivos, solventes y quimicos industriales en laboratorios y plantas.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Material:</strong> UHMWPE</span>
+          <span class="cat-spec"><strong>Resist:</strong> Acidos / Solventes</span>
+          <span class="cat-spec"><strong>Uso:</strong> Descarga quimica</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Quimica</span><span>Laboratorio</span><span>Farmaceutica</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <!-- ==========================================
+           CATEGORY 6: CONTRA INCENDIO
+           ========================================== -->
+      <div class="cat-category-header" data-category="incendio" id="sec-incendio">
+        <div class="cat-cat-icon icon-red">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h2>Mangueras Contra Incendio</h2>
+          <p>Mangueras certificadas NFPA para brigadas industriales, bomberos y proteccion contra incendios en infraestructura critica.</p>
+        </div>
+      </div>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20contra%20incendio%20doble%20chaqueta%201.5%20pulgadas" target="_blank" class="cat-card" data-category="incendio" data-keywords="manguera contra incendio doble chaqueta 1.5 pulgadas brigada industrial bomberos emergencia">
+        <div class="cat-card-badge badge-red">Doble Chaqueta</div>
+        <h3 class="cat-card-title">Manguera Contra Incendio Doble Chaqueta 1.1/2"</h3>
+        <p class="cat-card-desc">Manguera de alta presion para respuesta de emergencia. Doble chaqueta tejida para brigadas industriales y sistemas contra incendio.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Diametro:</strong> 1.1/2"</span>
+          <span class="cat-spec"><strong>Tipo:</strong> Doble chaqueta</span>
+          <span class="cat-spec"><strong>Uso:</strong> Brigadas / Bomberos</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Seguridad</span><span>Bomberos</span><span>Industria</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20cotizar%20manguera%20contra%20incendio%20ECO-10%20NFPA%201961%20para%20sector%20petrolero" target="_blank" class="cat-card" data-category="incendio" data-keywords="manguera contra incendio ECO-10 NFPA 1961 sector petrolero infraestructura critica extreme durabilidad">
+        <div class="cat-card-badge badge-red">NFPA 1961</div>
+        <h3 class="cat-card-title">Manguera ECO-10 NFPA 1961</h3>
+        <p class="cat-card-desc">Manguera de extrema durabilidad certificada NFPA 1961 para sector petrolero, plantas de energia y proteccion de infraestructura critica.</p>
+        <div class="cat-card-specs">
+          <span class="cat-spec"><strong>Norma:</strong> NFPA 1961</span>
+          <span class="cat-spec"><strong>Durabilidad:</strong> Extrema</span>
+          <span class="cat-spec"><strong>Uso:</strong> Petrolero / Critico</span>
+        </div>
+        <div class="cat-card-tags">
+          <span>Petroleo</span><span>Energia</span><span>Infraestructura</span>
+        </div>
+        <span class="cat-card-cta">Cotizar ahora &rarr;</span>
+      </a>
+
+    </div>
+
+    <!-- No Results Message -->
+    <div class="cat-no-results" id="cat-no-results" style="display:none;">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      <h3>No encontramos resultados</h3>
+      <p>Prueba con otro termino o <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20una%20manguera%20especifica%20que%20no%20encuentro%20en%20el%20catalogo" target="_blank">contacta a un asesor por WhatsApp</a></p>
+    </div>
+  </main>
+
+  <!-- CATALOG CTA BOTTOM -->
+  <section class="cat-bottom-cta">
+    <div class="cat-bottom-inner">
+      <h2>No encuentras lo que buscas?</h2>
+      <p>Tenemos mas de 500 referencias en stock. Envianos tu requerimiento y te asesoramos en minutos.</p>
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20una%20manguera%20o%20acople%20especifico%20que%20no%20encuentro%20en%20el%20catalogo" class="btn btn-whatsapp" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.556-5.333 11.888-11.888 11.888-2.01 0-3.986-.51-5.742-1.477l-6.142 1.7z"/></svg>
+        Hablar con asesor tecnico
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <img src="assets/logo-white.png" alt="Indumec" class="footer-logo">
+    <p class="footer-text">2026 Indumec S.A.S. Mangueras y Acoples Industriales. Bogota, Colombia.</p>
+  </footer>
+
+  <!-- Bottom Sticky Bar -->
+  <div class="bottom-sticky-bar" id="bottom-sticky-bar">
+    <div class="sticky-bar-inner">
+      <a href="tel:+573057670817" class="sticky-call">
+        <div class="sticky-call-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="sticky-call-text">
+          <span class="sticky-call-label">Línea directa</span>
+          <span class="sticky-call-number">+57 305 767 0817</span>
+        </div>
+      </a>
+      <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20una%20cotizaci%C3%B3n" class="sticky-catalog" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Hacer una Cotización
+      </a>
+    </div>
+  </div>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/573057670817?text=Hola%2C%20necesito%20asesor%C3%ADa%20t%C3%A9cnica%20del%20catalogo" class="wa-float" target="_blank" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.556-5.333 11.888-11.888 11.888-2.01 0-3.986-.51-5.742-1.477l-6.142 1.7zm6.392-3.873c1.552.921 3.326 1.41 5.14 1.41 4.636 0 8.41-3.773 8.41-8.41 0-2.247-.874-4.358-2.46-5.945-1.588-1.588-3.7-2.462-5.948-2.462-4.636 0-8.41 3.774-8.41 8.41 0 1.903.644 3.753 1.826 5.24l.277.397-.946 3.453 3.54-.929.571.236z"/></svg>
+  </a>
+
+  <script src="js/catalogo.js"></script>
+</body>
+</html>
