@@ -150,20 +150,25 @@
   });
 
   // --- Mobile Menu Toggle ---
-  const menuToggle = document.getElementById('cat-menu-toggle');
-  if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-      const nav = document.querySelector('.cat-nav');
-      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-      nav.style.position = 'absolute';
-      nav.style.top = '72px';
-      nav.style.left = '0';
-      nav.style.right = '0';
-      nav.style.background = 'var(--bg-dark)';
-      nav.style.flexDirection = 'column';
-      nav.style.padding = '20px 5vw';
-      nav.style.borderBottom = '1px solid rgba(255,255,255,0.06)';
+  function initMobileMenu() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      nav.classList.toggle('open');
+    });
+
+    const links = nav.querySelectorAll('.nav-link');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        btn.classList.remove('active');
+        nav.classList.remove('open');
+      });
     });
   }
+
+  initMobileMenu();
 
 })();

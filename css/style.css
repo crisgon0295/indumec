@@ -95,15 +95,21 @@ button { cursor: pointer; border: none; font-family: inherit; }
 /* --- Header --- */
 .site-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  padding: 24px 5vw;
+  top: 16px;
+  left: 3vw;
+  right: 3vw;
+  z-index: 1000;
+  padding: 16px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  mix-blend-mode: difference;
+  background: rgba(13,27,30,0.65);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: var(--transition);
 }
 .site-header .logo { height: 32px; filter: brightness(10); }
 .header-cta {
@@ -112,18 +118,22 @@ button { cursor: pointer; border: none; font-family: inherit; }
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: white;
-  padding: 10px 24px;
+  padding: 12px 28px;
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 100px;
   transition: var(--transition);
 }
 .header-cta:hover { background: white; color: var(--bg-dark); }
+.mobile-wa-cta { display: none; }
 
 /* Nav Links */
 .site-nav {
   display: flex;
   gap: 28px;
   align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .nav-link {
   font-size: 0.82rem;
@@ -133,6 +143,33 @@ button { cursor: pointer; border: none; font-family: inherit; }
   transition: var(--transition);
 }
 .nav-link:hover { color: white; }
+
+/* Hamburger Menu Toggle */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1001;
+}
+.mobile-menu-btn span {
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 /* ============================================
    HERO + CANVAS (Unified System)
@@ -1109,4 +1146,63 @@ button { cursor: pointer; border: none; font-family: inherit; }
 
   .cta-buttons { flex-direction: column; }
   .btn-whatsapp, .btn-outline-light { width: 100%; justify-content: center; }
+
+  /* Header adjustments for mobile */
+  .site-header {
+    top: 12px;
+    left: 16px;
+    right: 16px;
+    padding: 12px 16px;
+    border-radius: 20px;
+    justify-content: space-between;
+  }
+  .site-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgba(13,27,30,0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+    transform: none;
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .site-nav.open {
+    left: 0;
+  }
+  .nav-link {
+    font-size: 1.2rem;
+  }
+  .mobile-menu-btn {
+    display: flex;
+  }
+  .desktop-cta {
+    display: none;
+  }
+  .mobile-wa-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--green-light);
+    border-radius: 50%;
+    transition: var(--transition);
+  }
+  .mobile-wa-cta:hover {
+    background: var(--green);
+    transform: scale(1.05);
+  }
+  .mobile-wa-cta svg {
+    width: 20px;
+    height: 20px;
+  }
 }

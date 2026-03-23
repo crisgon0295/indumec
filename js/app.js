@@ -442,6 +442,27 @@
     });
   }
 
+  // --- Mobile Menu Toggle ---
+  function initMobileMenu() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const nav = document.getElementById('site-nav');
+    if (!btn || !nav) return;
+
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      nav.classList.toggle('open');
+    });
+
+    // Close on link click
+    const links = nav.querySelectorAll('.nav-link');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        btn.classList.remove('active');
+        nav.classList.remove('open');
+      });
+    });
+  }
+
   // --- Render Loop ---
   function renderLoop() {
     if (isReady) {
@@ -460,6 +481,7 @@
     renderLoop();
     preloadFrames();
     initContactForm();
+    initMobileMenu();
   }
 
   if (document.readyState === 'loading') {
