@@ -1389,3 +1389,73 @@ button { cursor: pointer; border: none; font-family: inherit; }
     bottom: 120px; /* Push WA button slightly up on mobile if bar is visible? Done via JS or just CSS. Let's just adjust it via CSS if the bar is visible */
   }
 }
+
+/* SEO Static Pages Styles */
+.seo-hero {
+  padding-top: 120px;
+  padding-bottom: 60px;
+  background: var(--bg-dark);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  text-align: center;
+}
+.seo-hero .hero-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.seo-hero .hero-subtitle {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: var(--text-light);
+}
+
+.seo-content {
+  padding: 60px 0;
+  background: var(--bg-dark);
+  color: var(--text-muted);
+}
+.seo-content .section-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.seo-article {
+  line-height: 1.8;
+  font-size: 1.1rem;
+  padding-bottom: 40px;
+}
+.seo-article h2 {
+  color: var(--text-light);
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+.seo-article h3 {
+  color: var(--text-light);
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+}
+.seo-article p {
+  margin-bottom: 20px;
+}
+.seo-article ul {
+  margin-bottom: 25px;
+  list-style-type: disc;
+  padding-left: 20px;
+}
+.seo-article li {
+  margin-bottom: 8px;
+}
+
+.faq-accordion {
+  margin-top: 20px;
+}
+.faq-accordion .faq-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 15px;
+}
+.faq-accordion h4 {
+  color: var(--text-light);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}

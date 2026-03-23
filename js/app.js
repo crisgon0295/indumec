@@ -398,10 +398,11 @@
 
       try {
         // Send via EmailJS
-        if (typeof emailjs !== 'undefined') {
-          emailjs.init('indumec_web');
-          await emailjs.send('service_indumec', 'template_indumec', {
-            to_email: 'agency.adsbigger@gmail.com',
+        if (typeof emailjs !== 'undefined' && typeof INDUMEC_CONFIG !== 'undefined' && INDUMEC_CONFIG.emailjs.enabled) {
+          const cfg = INDUMEC_CONFIG.emailjs;
+          emailjs.init(cfg.publicKey);
+          await emailjs.send(cfg.serviceId, cfg.templateId, {
+            to_email: INDUMEC_CONFIG.business.email,
             from_name: nombre,
             from_empresa: empresa,
             from_telefono: telefono,
@@ -411,8 +412,9 @@
         }
 
         // Fallback: open mailto
+        const contactEmail = typeof INDUMEC_CONFIG !== 'undefined' ? INDUMEC_CONFIG.business.email : 'agency.adsbigger@gmail.com';
         const mailtoBody = `Nombre: ${nombre}%0AEmpresa: ${empresa}%0ATelefono: ${telefono}%0AEmail: ${email}%0AMensaje: ${mensaje}`;
-        const mailtoLink = `mailto:agency.adsbigger@gmail.com?subject=Solicitud%20Indumec%20-%20${encodeURIComponent(nombre)}&body=${mailtoBody}`;
+        const mailtoLink = `mailto:${contactEmail}?subject=Solicitud%20Indumec%20-%20${encodeURIComponent(nombre)}&body=${mailtoBody}`;
 
         // Also send to WhatsApp as backup
         const waMsg = `Hola, soy ${nombre} de ${empresa}. ${mensaje}. Mi telefono: ${telefono}`;

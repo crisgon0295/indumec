@@ -1,0 +1,32 @@
+# Robots.txt - Indumec
+# https://indumec.com.co
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://indumec.com.co/sitemap.xml
+
+# Bloquear archivos de desarrollo y configuracion
+Disallow: /scripts/
+Disallow: /legacy/
+Disallow: /.claude/
+Disallow: /claude.skills/
+Disallow: /elementor-mcp/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /.env.local
+Disallow: /.mcp.json
+Disallow: /.mcp_config.json
+Disallow: /.claude_desktop_config.json
+Disallow: /CONTINUAR_AQUI.md
+
+# Permitir recursos importantes
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Allow: /frames/
+Allow: /public/
+
+# Crawl delay para ser amable con los servidores
+Crawl-delay: 1
