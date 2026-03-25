@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NZ4556RZ');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ensambles Hidráulicos Certificados en Bogotá | Indumec</title>
+  <meta name="description" content="Especialistas en ensambles hidráulicos de alta presión en Bogotá. Despacho rápido para maquinaria pesada. Soluciones garantizadas sin sacrificar calidad ni seguridad técnica.">
+  <link rel="canonical" href="https://www.indumec.com.co/ensambles-hidraulicos-bogota.html" />
+  
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #070707;
+      --bg-darker: #000000;
+      --accent: #FFB300; /* Amarillo industrial para urgencia */
+      --text-light: #F0F0F0;
+      --text-dim: #999999;
+    }
+    
+    * { box-sizing: border-box; }
+    
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Header Minimal para Landing */
+    .landing-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 6vw;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .logo-text {
+      color: white; 
+      font-weight: 900; 
+      font-size: 1.5rem; 
+      text-decoration: none; 
+      letter-spacing: -0.05em;
+    }
+    
+    .landing-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 6vw 60px 6vw;
+      background: radial-gradient(circle at 70% 30%, rgba(255,179,0,0.05) 0%, transparent 50%), var(--bg-dark);
+      position: relative;
+    }
+    
+    .hero-label {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.8rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+    
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 1.05;
+      font-weight: 900;
+      margin: 0;
+      max-width: 1000px;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+    
+    .hero-title span {
+      background: -webkit-linear-gradient(0deg, #FFFFFF 0%, #777777 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--text-dim);
+      margin-top: 35px;
+      max-width: 650px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+    
+    .hero-cta-wrapper {
+      margin-top: 60px;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn-urgency {
+      background: var(--accent);
+      color: #000;
+      padding: 22px 45px;
+      font-size: 1.1rem;
+      font-weight: 900;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .btn-urgency:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(255,179,0,0.25);
+      background: #FFC02A;
+    }
+    
+    .urgency-note {
+      color: #e74c3c;
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .pulse-dot {
+      display: block;
+      width: 12px;
+      height: 12px;
+      background: #e74c3c;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+    }
+    
+    /* Grid de Beneficios - Brutalist Style */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.05); /* Crea el efecto de bordes */
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .benefit-card {
+      background: var(--bg-dark);
+      padding: 80px 6vw;
+      transition: background 0.3s;
+    }
+    
+    .benefit-card:hover {
+      background: var(--bg-darker);
+    }
+    
+    .benefit-num {
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.05);
+      margin-bottom: 20px;
+      line-height: 1;
+    }
+    
+    .benefit-card h3 {
+      font-size: 1.8rem;
+      color: white;
+      margin: 0 0 20px 0;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    
+    .benefit-card p {
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin: 0;
+      font-size: 1.05rem;
+    }
+    
+    .highlight-card {
+      background: radial-gradient(circle at top right, rgba(255,179,0,0.08), transparent 70%), var(--bg-dark);
+    }
+    
+    .highlight-card h3 {
+      color: var(--accent);
+    }
+    
+    /* SEO Text Block */
+    .seo-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 120px 6vw;
+    }
+    
+    .seo-content h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 40px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+    
+    .seo-content p {
+      font-size: 1.15rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    
+    .seo-content p strong {
+      color: white;
+      font-weight: 600;
+    }
+    
+    .seo-content h3 {
+      font-size: 2rem;
+      color: white;
+      margin-top: 60px;
+      margin-bottom: 25px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    
+    .seo-list {
+      color: var(--text-dim);
+      font-size: 1.15rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      padding-left: 0;
+      list-style: none;
+    }
+    
+    .seo-list li {
+      margin-bottom: 20px;
+      padding-left: 30px;
+      position: relative;
+    }
+    
+    .seo-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+    
+    /* CTA Footer */
+    .cta-footer {
+      background: var(--bg-darker);
+      padding: 120px 5vw;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .cta-footer h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: white;
+      margin-bottom: 25px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    
+    /* Schema Markup for Local SEO */
+  </style>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Indumec",
+    "image": "https://www.indumec.com.co/assets/logo.png",
+    "@id": "",
+    "url": "https://www.indumec.com.co",
+    "telephone": "+57601",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bogotá",
+      "addressCountry": "CO"
+    },
+    "description": "Expertos en la fabricación rápida y técnica de ensambles hidráulicos de alta presión en Bogotá. Entregamos soluciones que evitan tiempos muertos usando conectores NPT, BSP, JIC certificados.",
+    "priceRange": "$$"
+  }
+  </script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZ4556RZ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Header -->
+  <header class="landing-header">
+    <a href="index.html" class="logo-text">INDUMEC</a>
+    <div style="color: var(--text-dim); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Línea Directa: (601) Bogotá</div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="landing-hero">
+      <div class="hero-label">Atención Inmediata Bogotá</div>
+      <h1 class="hero-title">Tu maquinaria<br><span>no puede esperar.</span></h1>
+      <p class="hero-subtitle">Mangueras y <strong>ensambles hidráulicos de alta presión certificados</strong>. Despacho rápido en Bogotá porque sabemos que cada minuto de equipo parado destroza la rentabilidad de un proyecto. No competimos en precio, competimos garantizando que tu máquina no vuelva a fallar por lo mismo.</p>
+      
+      <div class="hero-cta-wrapper">
+        <a href="https://wa.me/573057670817?text=Urgente:%20Necesito%20un%20ensamble%20hidráulico%20en%20Bogotá" class="btn-urgency" target="_blank" rel="noopener" onclick="dataLayer.push({event: 'whatsapp_click', location: 'ensambles_hero'})">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.888 11.888-11.888 3.176 0 6.161 1.237 8.404 3.48s3.481 5.229 3.481 8.406c0 6.556-5.333 11.888-11.888 11.888-2.01 0-3.986-.51-5.742-1.477l-6.142 1.7zm6.392-3.873c1.552.921 3.326 1.41 5.14 1.41 4.636 0 8.41-3.773 8.41-8.41 0-2.247-.874-4.358-2.46-5.945-1.588-1.588-3.7-2.462-5.948-2.462-4.636 0-8.41 3.774-8.41 8.41 0 1.903.644 3.753 1.826 5.24l.277.397-.946 3.453 3.54-.929.571.236z"/></svg>
+          Solicitar Fabricación Inmediata
+        </a>
+        <div class="urgency-note">
+          <span class="pulse-dot"></span>
+          Respuesta Flash • Inventario Permanente
+        </div>
+      </div>
+    </section>
+
+    <!-- Beneficios Grid - Enfoque B2B Brutalist -->
+    <section class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-num">01</div>
+        <h3>Expertise Técnica Absoluta</h3>
+        <p>No somos simples tomadores de pedidos. Diagnosticamos la falla raíz de tu acople dañado. Identificamos el tipo exacto de rosca (NPT, JIC, BSP, ORFS), la presión de trabajo requerida y la temperatura del fluido antes de prensar cualquier nueva manguera para garantizar cero re-procesos.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-num">02</div>
+        <h3>Certificación SAE Total</h3>
+        <p>Todos nuestros ensambles superan estrictamente las normativas internacionales de tolerancia SAE 100 R1 hasta R15. Una fuga por temperatura o un estallido en pleno turno cuesta miles de dólares en lucro cesante; por eso solo utilizamos conexiones que resisten cargas críticas continuas.</p>
+      </div>
+      <div class="benefit-card highlight-card">
+        <div class="benefit-num" style="color: rgba(255,179,0,0.2);">03</div>
+        <h3>Velocidad para Bogotá</h3>
+        <p>Contamos con maquinaria de crimpado (prensado) pesada y un inventario grueso de terminales en stock. Fabricamos tu ensamble bajo requerimientos exactos y lo tenemos listo para despacho prioritario a toda el área de Bogotá, Sabana, Fontibón o Siberia, mitigando paradas de planta.</p>
+      </div>
+    </section>
+
+    <!-- SEO Profundo Contextual -->
+    <section class="seo-content">
+      <h2>Especialistas en la fabricación técnica de ensambles de mangueras hidráulicas</h2>
+      <p>En el núcleo rudo de la industria colombiana, desde excavadoras de construcción pesada hasta sistemas de inyección de plásticos en zona franca, las máquinas exigen flujo perfecto. Los <strong>ensambles hidráulicos de alta y extrema presión</strong> no son accesorios, son arterias vitales. Un prensado deficiente o una elección incorrecta de terminal resulta invariablemente en paralización operativa o accidentes laborales críticos.</p>
+      
+      <p>En Indumec entendemos a la perfección el lenguaje de las máquinas. Fabricar un ensamble no consiste simplemente en colocar un acople metálico y aplicar presión. Se trata de tolerancias, compatibilidad de empaques métricos, y cálculo preciso del Factor de Seguridad en rangos como los 5.000 PSI o más.</p>
+      
+      <h3>¿Por qué las Industrias confían la presión a Indumec?</h3>
+      <ul class="seo-list">
+        <li><strong>Identificación forense de roscas:</strong> Un técnico de verdad asesora determinando el tipo de conector destruido (BSP recto, asiento a 37°, bridas Code 61/62) minimizando el error de compra.</li>
+        <li><strong>Protección contra el desgaste mecánico:</strong> Entregamos nuestros equipos aplicando coberturas abrasivas, guardas tipo espiral o termocontraíbles donde el entorno agresivo lo demanda.</li>
+        <li><strong>Geometría y Medición (OAL):</strong> Fabricamos basándonos en longitudes precisas <em>"Overall Length"</em> (asiento a asiento) previniendo que la manguera se estrangule trabajando por exceso de tensión.</li>
+        <li><strong>Stock listo para armar:</strong> La máquina paró y el repuesto importado tarda 15 días. Indumec extrae la pieza de catálogo y te da la refaccion de inmediato en cualquier parte de Bogotá.</li>
+      </ul>
+
+      <p>Cuando te comunicas con nosotros buscando <strong>terminales, racores o la fabricación de mangueras hidráulicas enteras</strong>, hablas directamente con expertos con grasa en las manos y años de experiencia interpretando especificaciones de equipos Caterpillar, Komatsu, y maquinaria asiática. Entregamos repuestos con músculo real, no competimos con chatarra frágil.</p>
+    </section>
+
+    <!-- CTA Footer Brutalista -->
+    <footer class="cta-footer">
+      <h2>Tu línea de producción encendida <br><span style="color: var(--text-dim); font-weight: 500;">empieza aquí.</span></h2>
+      <p style="color: var(--text-dim); margin-bottom: 50px; font-size: 1.25rem; max-width: 600px; margin-left: auto; margin-right: auto;">Envíanos una foto del ensamble estropeado por WhatsApp o detalla tus medidas y presión hidráulica. En minutos te damos una solución.</p>
+      
+      <a href="https://wa.me/573057670817?text=Necesito%20Cotizar%20un%20Ensamble%20Hidráulico" class="btn-urgency" target="_blank" rel="noopener" style="font-size: 1.3rem; padding: 25px 60px;">
+        Conectar con un Experto
+      </a>
+    </footer>
+  </main>
+
+</body>
+</html>

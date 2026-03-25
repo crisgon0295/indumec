@@ -10,7 +10,7 @@
   'use strict';
 
   // --- Config ---
-  const FRAME_COUNT = 192;
+  const FRAME_COUNT = typeof window !== 'undefined' && window.INDUMEC_CONFIG ? window.INDUMEC_CONFIG.canvas.frameCount : 60;
   const FRAME_PATH = 'frames/frame_';
   const FRAME_EXT = '.webp';
   const BATCH_SIZE = 18;
@@ -86,10 +86,8 @@
   }
 
   async function preloadFrames() {
-    // 1. Initial frames for visual continuity
-    const first = [];
-    for (let i = 0; i < Math.min(6, FRAME_COUNT); i++) first.push(loadFrame(i));
-    await Promise.all(first);
+    // 1. Initial frame for immediate visual continuity (unblocks main thread)
+    await loadFrame(0);
     if (frames[0]) drawFrame(0);
 
     // 2. Initialize animations immediately to improve WPO
@@ -97,7 +95,7 @@
     initAnimations();
 
     // 3. Background preloading of remaining frames
-    for (let i = 6; i < FRAME_COUNT; i += BATCH_SIZE) {
+    for (let i = 1; i < FRAME_COUNT; i += BATCH_SIZE) {
       const batch = [];
       for (let j = i; j < Math.min(i + BATCH_SIZE, FRAME_COUNT); j++) batch.push(loadFrame(j));
       await Promise.all(batch);
@@ -198,12 +196,13 @@
     buildSectionData();
 
     // Hero text reveal
-    gsap.set(['.hero-label', '.hero-title', '.hero-subtitle', '.hero-cta-row'], { y: 30 });
+    gsap.set(['.hero-label', '.hero-title', '.hero-subtitle', '.hero-cta-row', '#hero-trust'], { y: 30, opacity: 0 });
     const tl = gsap.timeline({ delay: 0.3 });
     tl.to('.hero-label', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
       .to('.hero-title', { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.5')
       .to('.hero-subtitle', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.6')
-      .to('.hero-cta-row', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5');
+      .to('.hero-cta-row', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5')
+      .to('#hero-trust', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4');
 
     // Hero fade on scroll
     ScrollTrigger.create({

@@ -1,0 +1,11 @@
+RewriteEngine On
+# Si la petición no es un archivo físico válido
+RewriteCond %{REQUEST_FILENAME} !-f
+# Si la petición no es un directorio físico válido
+RewriteCond %{REQUEST_FILENAME} !-d
+# Redirige internamente agregando .html
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Forzar HTTPS (Opcional pero recomendado para Hostinger cuando tengas el SSL)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

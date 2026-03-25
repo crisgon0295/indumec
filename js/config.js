@@ -46,9 +46,9 @@ const INDUMEC_CONFIG = {
   // GOOGLE ANALYTICS / GTM
   // =========================================
   analytics: {
-    gaMeasurementId: 'G-XXXXXXXXXX', // Reemplazar
-    gtmId: 'GTM-XXXXXXX',           // Reemplazar
-    enabled: false // Cambiar a true cuando tengas ID
+    gaMeasurementId: 'G-XXXXXXXXXX', // Reemplazar con ID de GA si lo tienes, o dejarlo así para GTM
+    gtmId: 'GTM-NZ4556RZ',           // ID actualizado
+    enabled: true // Analytics activado
   },
 
   // =========================================
