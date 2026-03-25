@@ -16,11 +16,11 @@
 | **Calidad Técnica** | 6/10 | Código limpio pero frágil; dependiente de scripts externos pesados. |
 
 ### 🚨 Top 5 Problemas Críticos
-1. **Fricción por Carga Visual:** 192 frames de video pesan demasiado para una conexión móvil industrial.
-2. **Ausencia de Autoridad Real:** Faltan certificaciones visibles (ISO, SAE, etc.) y testimonios reales de ingenieros.
-3. **Tracking Ciego:** Google Analytics y GTM están configurados como "placeholders" (G-XXXXXXXXXX). No sabemos qué funciona.
-4. **Ancho de Banda SEO Bajo:** Solo el Home y el Catálogo están "vivos". Faltan 10+ subpáginas de productos específicos.
-5. **Formulario Sin Cierre:** El formulario envía a un email genérico pero no confirma recepción ni dispara un auto-responder.
+1. ~~**Fricción por Carga Visual:** 192 frames de video pesan demasiado.~~ **[RESUELTO: 60 frames y Preload optimizado]**
+2. ~~**Ausencia de Autoridad Real:** Faltan certificaciones visibles y logos de clientes.~~ **[RESUELTO: Banda de confianza y Certificaciones SAE/ISO inyectadas]**
+3. ~~**Tracking Ciego:** GTM/GA4 eran placeholders.~~ **[RESUELTO: ID GTM-NZ4556RZ configurado y eventos de click activos]**
+4. **Ancho de Banda SEO Bajo:** Faltan subpáginas. **[EN PROGRESO: 2 Landings críticas creadas]**
+5. ~~**Formulario Sin Cierre:** El formulario no confirmaba recepción.~~ **[RESUELTO: FormSubmit con redirect a WhatsApp e ID de tracking]**
 
 ### 🚀 Top 5 Oportunidades de Crecimiento
 1. **SEO Local Bogotá:** Dominar "mangueras hidráulicas Bogotá" mediante páginas de aterrizaje geolocalizadas.
@@ -115,12 +115,13 @@
 ## FASE 1: Estabilización (Días 0–7)
 1.  ~~**Configurar Tracking REAL:** Conectar GTM con GA4 y medir clicks en WhatsApp.~~ **✅ COMPLETADO**
 2.  ~~**Optimización de Activos:** Animación a 60 frames liberando Main Thread.~~ **✅ COMPLETADO**
-3.  **Corrección de Authority:** Mover 3 logos clave al Hero para validar el negocio al instante.
+3.  ~~**Corrección de Authority:** Inyectar logos de clientes reales en banda de autoridad.~~ **✅ COMPLETADO**
 
 ## FASE 2: Expansión de Contenido (Días 7–30)
-1.  **Estructura Multi-página:** Crear 4 landing pages enfocadas en keywords transaccionales.
-2.  **Sección de Certificaciones:** Crear bloque visual con logos de normas SAE, NFPA, ISO.
-3.  **Formulario Auto-responder:** Configurar EmailJS con un mensaje de éxito que redirija a WhatsApp.
+1.  ~~**Estructura Multi-página:** Crear landigs (Ensambles y Terminales NPT/BSP).~~ **✅ COMPLETADO**
+2.  ~~**Sección de Certificaciones:** Crear bloque visual con logos de normas SAE, NFPA, ISO.~~ **✅ COMPLETADO**
+3.  ~~**Formulario Auto-responder:** Configurar FormSubmit con redirect estratégico.~~ **✅ COMPLETADO**
+4.  **Limpieza de CSS:** Migrar estilos inline a `style.css` para mejor WPO. **[PENDIENTE]**
 
 ## FASE 3: Dominancia (Días 30–90)
 1.  **Blog Técnico:** 2 artículos mensuales sobre "Mantenimiento Preventivo de Circuitos Hidráulicos".
