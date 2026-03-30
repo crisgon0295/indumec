@@ -1,11 +1,36 @@
 RewriteEngine On
-# Si la petición no es un archivo físico válido
-RewriteCond %{REQUEST_FILENAME} !-f
-# Si la petición no es un directorio físico válido
-RewriteCond %{REQUEST_FILENAME} !-d
-# Redirige internamente agregando .html
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
-# Forzar HTTPS (Opcional pero recomendado para Hostinger cuando tengas el SSL)
+# =====================================================
+# URL LIMPIA: /index → / (redirect 301 permanente)
+# Evita contenido duplicado y muestra URL canonica
+# =====================================================
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index(\.html)?\ HTTP/
+RewriteRule ^index(\.html)?$ / [R=301,L]
+
+# =====================================================
+# Extensiones .html opcionales
+# Si la peticion no es un archivo fisico valido
+# y no es un directorio → agrega .html internamente
+# =====================================================
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^.]+)$ $1.html [NC,L]
+
+# =====================================================
+# Cache headers para frames WebP (WPO)
+# Los frames son estaticos: 30 dias de cache
+# =====================================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/png  "access plus 30 days"
+  ExpiresByType image/jpg  "access plus 30 days"
+  ExpiresByType text/css   "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+</IfModule>
+
+# =====================================================
+# HTTPS (activar cuando SSL este listo en Hostinger)
+# =====================================================
 # RewriteCond %{HTTPS} off
 # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

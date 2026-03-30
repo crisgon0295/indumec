@@ -29,16 +29,10 @@ const INDUMEC_CONFIG = {
   // =========================================
   // EMAILJS - Formulario de Contacto
   // =========================================
-  // Obtener en: https://www.emailjs.com/
-  // Pasos:
-  // 1. Crear cuenta en EmailJS
-  // 2. Crear servicio de email
-  // 3. Crear plantilla de email
-  // 4. Obtener Public Key
   emailjs: {
-    publicKey: 'indumec_web',     // Reemplazar con tu clave
-    serviceId: 'service_indumec', // Reemplazar con tu service ID
-    templateId: 'template_indumec', // Reemplazar con tu template ID
+    publicKey: 'indumec_web',
+    serviceId: 'service_indumec',
+    templateId: 'template_indumec',
     enabled: true
   },
 
@@ -46,9 +40,9 @@ const INDUMEC_CONFIG = {
   // GOOGLE ANALYTICS / GTM
   // =========================================
   analytics: {
-    gaMeasurementId: 'G-XXXXXXXXXX', // Reemplazar con ID de GA si lo tienes, o dejarlo así para GTM
-    gtmId: 'GTM-NZ4556RZ',           // ID actualizado
-    enabled: true // Analytics activado
+    gaMeasurementId: 'G-XXXXXXXXXX',
+    gtmId: 'GTM-NZ4556RZ',
+    enabled: true
   },
 
   // =========================================
@@ -77,44 +71,82 @@ const INDUMEC_CONFIG = {
   },
 
   // =========================================
-  // CONFIGURACION DEL CANVAS
-  // Desktop: 192 frames para video completo
-  // Mobile: 40 frames para WPO optimizado
+  // CONFIGURACION DEL CANVAS (Animacion Hero)
+  //
+  // Desktop (>1024px):
+  //   192 frames reales · velocidad 2× (scroll-container = 350vh)
+  //
+  // Tablet (769-1024px):
+  //   192 frames reales · velocidad 2× · DPR limitado a 1.5
+  //
+  // Mobile (≤768px):
+  //   96 frames VIRTUALES → cada uno mapea a frame real ×2
+  //   (frame 0→real 1, frame 1→real 3, frame 2→real 5...)
+  //   Animacion visualmente completa con 50% menos requests y memoria
+  //   WPO: -50% network, -50% RAM canvas
   // =========================================
   canvas: {
-    // Configuración desktop - video completo
+
     desktop: {
-      frameCount: 192,
-      batchSize: 24,
-      maxDpr: 2 // Limitar DPR para pantallas retina
+      frameCount:       192, // cuantos frames se cargan
+      frameStep:        1,   // salto en archivos reales (1 = todos)
+      scrollMultiplier: 2,   // velocidad: 2× = scroll-container ÷ 2
+      batchSize:        24,
+      maxDpr:           2
     },
-    // Configuración mobile - WPO optimizado
+
+    tablet: {
+      frameCount:       192,
+      frameStep:        1,
+      scrollMultiplier: 2,
+      batchSize:        20,
+      maxDpr:           1.5
+    },
+
     mobile: {
-      frameCount: 40,
-      batchSize: 12,
-      maxDpr: 1.5 // Reducir DPR en móvil
+      frameCount:       96,  // frames virtuales (la mitad)
+      frameStep:        2,   // cada virtual → real×2 (cubre rango 1-191)
+      scrollMultiplier: 1,   // velocidad normal en móvil (scroll-container = 350vh)
+      batchSize:        12,
+      maxDpr:           1.5
     },
+
     framePath: 'frames/frame_',
-    frameExt: '.webp'
+    frameExt:  '.webp'
   },
 
-  // Detectar si es dispositivo móvil
+  // =========================================
+  // DETECCION DE DISPOSITIVO
+  // =========================================
+
+  // Retorna 'mobile' | 'tablet' | 'desktop'
+  getBreakpoint: function() {
+    const w = window.innerWidth;
+    const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (w <= 768 || isMobileUA) return 'mobile';
+    if (w <= 1024) return 'tablet';
+    return 'desktop';
+  },
+
+  // Compatibilidad hacia atras
   isMobile: function() {
-    return window.innerWidth <= 768 ||
-           /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    return this.getBreakpoint() === 'mobile';
   },
 
-  // Obtener configuración del canvas según dispositivo
+  // Retorna objeto de configuracion segun breakpoint actual
   getCanvasConfig: function() {
-    const isMobile = this.isMobile();
-    const config = isMobile ? this.canvas.mobile : this.canvas.desktop;
+    const bp    = this.getBreakpoint();
+    const cfg   = this.canvas[bp] || this.canvas.desktop;
     return {
-      frameCount: config.frameCount,
-      framePath: this.canvas.framePath,
-      frameExt: this.canvas.frameExt,
-      batchSize: config.batchSize,
-      maxDpr: config.maxDpr,
-      isMobile: isMobile
+      frameCount:       cfg.frameCount,
+      frameStep:        cfg.frameStep,
+      scrollMultiplier: cfg.scrollMultiplier,
+      framePath:        this.canvas.framePath,
+      frameExt:         this.canvas.frameExt,
+      batchSize:        cfg.batchSize,
+      maxDpr:           cfg.maxDpr,
+      isMobile:         bp === 'mobile',
+      breakpoint:       bp
     };
   }
 };

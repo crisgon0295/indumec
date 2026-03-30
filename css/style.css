@@ -391,7 +391,7 @@ button { cursor: pointer; border: none; font-family: inherit; }
    ============================================ */
 #scroll-container {
   position: relative;
-  height: 700vh;
+  height: 350vh; /* fallback — JS lo sobreescribe segun scrollMultiplier */
   z-index: 5;
 }
 

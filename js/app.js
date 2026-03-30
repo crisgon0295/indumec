@@ -12,13 +12,15 @@
   // --- Config ---
   const WA_NUMBER = '573057670817';
 
-  // Device detection and config
-  let canvasConfig = null;
-  let FRAME_COUNT = 60; // Default, will be set from config
-  let FRAME_PATH = 'frames/frame_';
-  let FRAME_EXT = '.webp';
-  let BATCH_SIZE = 18;
-  let MAX_DPR = 2;
+  // Device & canvas config (leídos desde INDUMEC_CONFIG en init)
+  let canvasConfig   = null;
+  let FRAME_COUNT    = 60;             // frames virtuales a usar
+  let FRAME_STEP     = 1;             // salto en archivos reales (1=todos, 2=alternos)
+  let FRAME_PATH     = 'frames/frame_';
+  let FRAME_EXT      = '.webp';
+  let BATCH_SIZE     = 18;
+  let MAX_DPR        = 2;
+  let SCROLL_MULT    = 1;             // multiplicador de velocidad de animacion
 
   // --- State ---
   const frames = [];
@@ -88,16 +90,22 @@
   // --- Frame Preloading ---
   function padNumber(n) { return String(n).padStart(4, '0'); }
 
-  function loadFrame(index) {
+  /**
+   * loadFrame(virtualIndex)
+   * En desktop/tablet: carga frame_000N donde N = virtualIndex + 1
+   * En móvil (FRAME_STEP=2): carga frame_000N donde N = virtualIndex*2 + 1
+   *   → frame virtual 0 = frame real 0001
+   *   → frame virtual 1 = frame real 0003
+   *   → frame virtual 95 = frame real 0191
+   * Así 96 frames cubren toda la animación con la mitad de requests
+   */
+  function loadFrame(virtualIndex) {
     return new Promise((resolve) => {
-      const img = new Image();
-      img.onload = () => {
-        frames[index] = img;
-        loadedCount++;
-        resolve();
-      };
-      img.onerror = () => { loadedCount++; resolve(); };
-      img.src = FRAME_PATH + padNumber(index + 1) + FRAME_EXT;
+      const img       = new Image();
+      const realIndex = virtualIndex * FRAME_STEP; // mapeo a archivo real
+      img.onload  = () => { frames[virtualIndex] = img; loadedCount++; resolve(); };
+      img.onerror = () => {                        loadedCount++; resolve(); };
+      img.src = FRAME_PATH + padNumber(realIndex + 1) + FRAME_EXT;
     });
   }
 
@@ -237,15 +245,16 @@
       }
     });
 
-    // Frame sync — video ends at Section 4/5 (scroll-container ~85%)
+    // Frame sync — sincronizado con scroll-container
+    // Con SCROLL_MULT=2: la animación completa en la mitad del scroll disponible
     ScrollTrigger.create({
       trigger: 'body',
       start: 'top top',
       end: 'bottom bottom',
       scrub: 0.3,
       onUpdate: (self) => {
-        // Map entire page progress to frame progress, but cap at Section 4/5 end
-        const frameProgress = Math.min(1, self.progress / 0.85); 
+        // frameProgress llega a 1.0 antes del final de página gracias a SCROLL_MULT
+        const frameProgress = Math.min(1, (self.progress * SCROLL_MULT) / 0.85);
         targetFrame = Math.min(FRAME_COUNT - 1, Math.floor(frameProgress * (FRAME_COUNT - 1)));
       }
     });
@@ -494,18 +503,32 @@
 
   // --- Init ---
   function init() {
-    // Cargar configuración según dispositivo
+    // Cargar configuracion segun dispositivo
     if (typeof window.INDUMEC_CONFIG !== 'undefined') {
-      canvasConfig = window.INDUMEC_CONFIG.getCanvasConfig();
-      FRAME_COUNT = canvasConfig.frameCount;
-      FRAME_PATH = canvasConfig.framePath;
-      FRAME_EXT = canvasConfig.frameExt;
-      BATCH_SIZE = canvasConfig.batchSize;
-      MAX_DPR = canvasConfig.maxDpr;
+      canvasConfig  = window.INDUMEC_CONFIG.getCanvasConfig();
+      FRAME_COUNT   = canvasConfig.frameCount;
+      FRAME_STEP    = canvasConfig.frameStep    || 1;
+      SCROLL_MULT   = canvasConfig.scrollMultiplier || 1;
+      FRAME_PATH    = canvasConfig.framePath;
+      FRAME_EXT     = canvasConfig.frameExt;
+      BATCH_SIZE    = canvasConfig.batchSize;
+      MAX_DPR       = canvasConfig.maxDpr;
+
+      // Ajustar altura del scroll-container dinamicamente segun velocidad
+      // Desktop 2× → 350vh | Mobile 1× → 350vh (ya estaba corto en mobile)
+      if (scrollContainer) {
+        const bp = canvasConfig.breakpoint || 'desktop';
+        if (bp === 'mobile') {
+          scrollContainer.style.height = '350vh';
+        } else {
+          // 700vh base dividido entre el multiplicador de velocidad
+          const vhBase = 700;
+          scrollContainer.style.height = Math.round(vhBase / SCROLL_MULT) + 'vh';
+        }
+      }
     }
 
     resizeCanvas();
-    // Usar resize con debounce para mejor performance
     window.addEventListener('resize', debouncedResize);
     initLenis();
     renderLoop();
@@ -513,7 +536,7 @@
     initContactForm();
     initMobileMenu();
 
-    // Show bottom sticky bar after 5 seconds
+    // Mostrar sticky bar despues de 5 segundos
     setTimeout(() => {
       const stickyBar = document.getElementById('bottom-sticky-bar');
       if (stickyBar) stickyBar.classList.add('visible');
