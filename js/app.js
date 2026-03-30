@@ -10,11 +10,15 @@
   'use strict';
 
   // --- Config ---
-  const FRAME_COUNT = typeof window !== 'undefined' && window.INDUMEC_CONFIG ? window.INDUMEC_CONFIG.canvas.frameCount : 60;
-  const FRAME_PATH = 'frames/frame_';
-  const FRAME_EXT = '.webp';
-  const BATCH_SIZE = 18;
   const WA_NUMBER = '573057670817';
+
+  // Device detection and config
+  let canvasConfig = null;
+  let FRAME_COUNT = 60; // Default, will be set from config
+  let FRAME_PATH = 'frames/frame_';
+  let FRAME_EXT = '.webp';
+  let BATCH_SIZE = 18;
+  let MAX_DPR = 2;
 
   // --- State ---
   const frames = [];
@@ -23,6 +27,7 @@
   let loadedCount = 0;
   let isReady = false;
   let activeSectionIndex = -1;
+  let resizeTimeout = null;
 
   // --- DOM ---
   const heroWrapper = document.getElementById('hero-wrapper');
@@ -39,13 +44,24 @@
 
   // --- Canvas Setup ---
   function resizeCanvas() {
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
-    canvas.style.width = window.innerWidth + 'px';
-    canvas.style.height = window.innerHeight + 'px';
+    // Limitar DPR para evitar canvas gigantes en pantallas retina/4K
+    const rawDpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(rawDpr, MAX_DPR);
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     if (frames[currentFrame]) drawFrame(currentFrame);
+  }
+
+  // Debounced resize para evitar reflow excesivo
+  function debouncedResize() {
+    if (resizeTimeout) clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(resizeCanvas, 100);
   }
 
   function drawFrame(index) {
@@ -95,9 +111,13 @@
     initAnimations();
 
     // 3. Background preloading of remaining frames
+    // Desktop: carga todos los frames (192)
+    // Mobile: carga frames optimizados (40)
     for (let i = 1; i < FRAME_COUNT; i += BATCH_SIZE) {
       const batch = [];
-      for (let j = i; j < Math.min(i + BATCH_SIZE, FRAME_COUNT); j++) batch.push(loadFrame(j));
+      for (let j = i; j < Math.min(i + BATCH_SIZE, FRAME_COUNT); j++) {
+        batch.push(loadFrame(j));
+      }
       await Promise.all(batch);
     }
   }
@@ -217,15 +237,15 @@
       }
     });
 
-    // Frame sync — video ends at Section 4 (scroll-container ~85%)
+    // Frame sync — video ends at Section 4/5 (scroll-container ~85%)
     ScrollTrigger.create({
       trigger: 'body',
       start: 'top top',
       end: 'bottom bottom',
       scrub: 0.3,
       onUpdate: (self) => {
-        // Map entire page progress to frame progress, but cap at Section 4 end
-        const frameProgress = Math.min(1, self.progress / 0.35);
+        // Map entire page progress to frame progress, but cap at Section 4/5 end
+        const frameProgress = Math.min(1, self.progress / 0.85); 
         targetFrame = Math.min(FRAME_COUNT - 1, Math.floor(frameProgress * (FRAME_COUNT - 1)));
       }
     });
@@ -474,8 +494,19 @@
 
   // --- Init ---
   function init() {
+    // Cargar configuración según dispositivo
+    if (typeof window.INDUMEC_CONFIG !== 'undefined') {
+      canvasConfig = window.INDUMEC_CONFIG.getCanvasConfig();
+      FRAME_COUNT = canvasConfig.frameCount;
+      FRAME_PATH = canvasConfig.framePath;
+      FRAME_EXT = canvasConfig.frameExt;
+      BATCH_SIZE = canvasConfig.batchSize;
+      MAX_DPR = canvasConfig.maxDpr;
+    }
+
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    // Usar resize con debounce para mejor performance
+    window.addEventListener('resize', debouncedResize);
     initLenis();
     renderLoop();
     preloadFrames();

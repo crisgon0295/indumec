@@ -78,12 +78,44 @@ const INDUMEC_CONFIG = {
 
   // =========================================
   // CONFIGURACION DEL CANVAS
+  // Desktop: 192 frames para video completo
+  // Mobile: 40 frames para WPO optimizado
   // =========================================
   canvas: {
-    frameCount: 60, // Reducido de 192 para performance
+    // Configuración desktop - video completo
+    desktop: {
+      frameCount: 192,
+      batchSize: 24,
+      maxDpr: 2 // Limitar DPR para pantallas retina
+    },
+    // Configuración mobile - WPO optimizado
+    mobile: {
+      frameCount: 40,
+      batchSize: 12,
+      maxDpr: 1.5 // Reducir DPR en móvil
+    },
     framePath: 'frames/frame_',
-    frameExt: '.webp',
-    batchSize: 18
+    frameExt: '.webp'
+  },
+
+  // Detectar si es dispositivo móvil
+  isMobile: function() {
+    return window.innerWidth <= 768 ||
+           /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  },
+
+  // Obtener configuración del canvas según dispositivo
+  getCanvasConfig: function() {
+    const isMobile = this.isMobile();
+    const config = isMobile ? this.canvas.mobile : this.canvas.desktop;
+    return {
+      frameCount: config.frameCount,
+      framePath: this.canvas.framePath,
+      frameExt: this.canvas.frameExt,
+      batchSize: config.batchSize,
+      maxDpr: config.maxDpr,
+      isMobile: isMobile
+    };
   }
 };
 

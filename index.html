@@ -155,26 +155,23 @@
   <!-- End Google Tag Manager (noscript) -->
 
   <!-- HEADER -->
-  <header class="site-header" id="site-header">
+  <header class="site-header" id="site-header" style="background: rgba(10,10,10,0.85); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); height: 85px; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; top: 0; left: 0; right: 0; border-radius: 0;">
     <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
     
-    <a href="index.html" class="logo-link"><img src="assets/logo-white.png" alt="Indumec" class="logo"></a>
+    <a href="index" class="logo-link"><img src="assets/logo-white.png" alt="Mangueras Industriales" class="logo" style="height: 38px;"></a>
     
-    <nav class="site-nav" id="site-nav">
-      <a href="catalogo.html" class="nav-link">Catálogo</a>
-      <a href="ensambles-hidraulicos-bogota.html" class="nav-link" style="color: var(--accent); font-weight: 700;">Ensambles</a>
+    <nav class="site-nav" id="site-nav" style="display: flex; gap: 32px; align-items: center;">
+      <a href="catalogo" class="nav-link">Catálogo</a>
+      <a href="#categorias" class="nav-link" style="color: var(--accent); font-weight: 700;">Servicios</a>
       <a href="#soluciones" class="nav-link">Soluciones</a>
       <a href="#contacto" class="nav-link">Contacto</a>
     </nav>
     
-    <a href="https://wa.me/573057670817?text=Hola%20necesito%20una%20manguera%20industrial%20urgente" class="header-cta desktop-cta" target="_blank" rel="noopener" onclick="dataLayer.push({event: 'whatsapp_click', location: 'header_button'})">
-      <div class="cta-text">
-        <span>COTIZAR</span>
-        <span>AHORA</span>
-      </div>
-      <svg class="cta-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <a href="https://wa.me/573057670817?text=Hola%20necesito%20una%20manguera%20industrial%20urgente" class="header-cta desktop-cta" target="_blank" rel="noopener" onclick="dataLayer.push({event: 'whatsapp_click', location: 'header_button'})" style="background: var(--accent); color: #000; border-radius: 100px; padding: 12px 28px; box-shadow: 0 4px 15px rgba(255,179,0,0.3); font-weight: 800; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; display: flex; align-items: center; gap: 10px;">
+      <span>COTIZAR AHORA</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
     </a>
   </header>
 
@@ -244,7 +241,7 @@
     <div class="scroll-section align-center" data-enter="0.80" data-leave="0.99" data-animation="stagger-up" data-persist="true" style="justify-content: center; text-align: center;">
       <div style="background: transparent; border: none; box-shadow: none;">
         <h2 class="section-title" style="font-size: clamp(2.5rem, 6vw, 4rem);">Habla con un asesor<br>ahora</h2>
-        <a href="https://wa.me/573057670817?text=Hola%20necesito%20una%20manguera%20industrial%20urgente" class="btn btn-primary step" target="_blank" rel="noopener" style="margin-top: 16px; font-size: 1.1rem; padding: 20px 40px; border-radius: 12px;" onclick="dataLayer.push({event: 'whatsapp_click', location: 'scroll_story_cta'})">
+        <a href="https://wa.me/573057670817?text=Hola%20necesito%20una%20manguera%20industrial%20urgente" class="btn btn-primary step" target="_blank" rel="noopener" style="margin-top: 24px; font-size: 1.1rem;" onclick="dataLayer.push({event: 'whatsapp_click', location: 'scroll_story_cta'})">
           Iniciar asesoría inmediata
         </a>
       </div>
@@ -469,10 +466,10 @@
         </div>
         <div class="sticky-call-text">
           <span class="sticky-call-label">Línea directa</span>
-          <span class="sticky-call-number">+57 305 767 0817</span>
+          <span class="sticky-call-number">¡Llamar ya!</span>
         </div>
       </a>
-      <a href="catalogo.html" class="sticky-catalog" onclick="dataLayer.push({event: 'cta_click', location: 'sticky_bar_catalog'})">
+      <a href="catalogo" class="sticky-catalog" onclick="dataLayer.push({event: 'cta_click', location: 'sticky_bar_catalog'})">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-0-5H20"/></svg>
         Ver Catálogo Completo
       </a>

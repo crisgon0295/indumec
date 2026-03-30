@@ -190,10 +190,13 @@ button { cursor: pointer; border: none; font-family: inherit; }
 
 /* ============================================
    HERO + CANVAS (Unified System)
+   Optimizado para WPO - performance first
    ============================================ */
 .hero-canvas-wrapper {
   position: relative;
   height: 300vh;
+  /* Reducir CLS reservando espacio */
+  min-height: 100vh;
 }
 
 .hero-canvas-bg {
@@ -203,11 +206,17 @@ button { cursor: pointer; border: none; font-family: inherit; }
   width: 100%;
   height: 100dvh;
   z-index: 1;
+  /* Optimización GPU */
+  will-change: opacity;
+  transform: translateZ(0);
 }
 #product-canvas {
   width: 100%;
   height: 100%;
   display: block;
+  /* Optimización de rendimiento */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 .hero-canvas-gradient {
   position: absolute;
@@ -301,22 +310,26 @@ button { cursor: pointer; border: none; font-family: inherit; }
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 16px 32px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 42px;
+  font-size: 0.9rem;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-radius: var(--radius);
-  transition: var(--transition);
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
 }
-.btn:active { transform: scale(0.97); }
+.btn:active { transform: scale(0.96); }
 .btn-primary {
   background: var(--green-light);
   color: white;
+  box-shadow: 0 4px 15px rgba(37,211,102,0.25);
 }
-.btn-primary:hover { background: var(--green); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(27,94,59,0.3); }
+.btn-primary:hover { background: var(--green); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(37,211,102,0.4); }
 .btn-ghost {
   background: transparent;
   color: white;
@@ -1126,7 +1139,8 @@ button { cursor: pointer; border: none; font-family: inherit; }
       rgba(13,27,30,0.3) 100%
     );
   }
-  .hero-canvas-wrapper { height: 200vh; }
+  /* Reducir altura del canvas wrapper en móvil para mejor WPO */
+  .hero-canvas-wrapper { height: 150vh; }
 
   .align-left, .align-right {
     padding-left: 6vw;
@@ -1141,7 +1155,33 @@ button { cursor: pointer; border: none; font-family: inherit; }
     width: 100%;
   }
 
-  #scroll-container { height: 480vh; }
+  /* Reducir altura del scroll container en móvil */
+  #scroll-container { height: 350vh; }
+
+  /* Optimización WPO: reducir efectos costosos en móvil */
+  .site-header {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(10,10,10,0.95);
+  }
+
+  /* Reducir animaciones en móvil para mejor performance */
+  .nebula-bg::before,
+  .nebula-bg::after {
+    animation: none;
+  }
+
+  /* Optimizar scroll sections en móvil */
+  .scroll-section > div {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(13,27,30,0.95);
+  }
+
+  /* Reducir will-change en móvil */
+  .hero-canvas-bg {
+    will-change: auto;
+  }
 
   .solutions-grid { grid-template-columns: 1fr; }
   .porque-grid { grid-template-columns: 1fr 1fr; }

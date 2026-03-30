@@ -139,13 +139,15 @@
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
+  // --- Initial scroll-based animations (scroll reveal fallbacks) ---
   cards.forEach((card) => {
-    card.style.opacity = '0';
+    // No forzamos opacidad 0 inicial para evitar que se quede invisible si falla el observer
+    if (window.innerWidth < 768) card.style.opacity = '1';
     observer.observe(card);
   });
 
   categoryHeaders.forEach((hdr) => {
-    hdr.style.opacity = '0';
+    if (window.innerWidth < 768) hdr.style.opacity = '1';
     observer.observe(hdr);
   });
 
