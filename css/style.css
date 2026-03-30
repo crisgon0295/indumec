@@ -99,47 +99,48 @@ button { cursor: pointer; border: none; font-family: inherit; }
   left: 3vw;
   right: 3vw;
   z-index: 1000;
-  padding: 16px 32px;
+  padding: 14px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(13,27,30,0.65);
+  background: rgba(13,27,30,0.75);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
-  border-radius: 25px;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  transition: var(--transition);
-}
-.site-header .logo { height: 32px; filter: brightness(10); }
-.header-cta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px 16px 10px 24px;
-  border: 1px solid rgba(255,255,255,0.3);
   border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
   transition: var(--transition);
-  text-decoration: none;
+  gap: 16px;
 }
-.header-cta:hover { 
-  background: rgba(255, 255, 255, 0.15); 
-  border-color: rgba(255,255,255,0.6);
+.site-header .logo {
+  height: 30px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  display: block;
 }
-.cta-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-}
-.cta-text span {
-  font-size: 0.65rem;
+
+/* CTA Desktop Button */
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
-  line-height: 1.2;
-  color: white;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+.header-cta:hover {
+  background: var(--coral-dim);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232,124,93,0.4);
 }
 .mobile-wa-cta { display: none; }
 
@@ -155,13 +156,15 @@ button { cursor: pointer; border: none; font-family: inherit; }
 .nav-link {
   font-size: 0.82rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.6);
   letter-spacing: 0.03em;
   transition: var(--transition);
+  white-space: nowrap;
 }
-.nav-link:hover { color: white; }
+.nav-link:hover,
+.nav-link--active { color: var(--accent); font-weight: 600; }
 
-/* Hamburger Menu Toggle */
+/* Hamburger Menu Toggle — hidden on desktop */
 .mobile-menu-btn {
   display: none;
   flex-direction: column;
@@ -170,19 +173,22 @@ button { cursor: pointer; border: none; font-family: inherit; }
   padding: 8px;
   cursor: pointer;
   z-index: 1001;
+  flex-shrink: 0;
 }
 .mobile-menu-btn span {
-  width: 24px;
+  width: 22px;
   height: 2px;
   background: white;
   border-radius: 2px;
   transition: var(--transition);
+  display: block;
 }
 .mobile-menu-btn.active span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
 .mobile-menu-btn.active span:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0);
 }
 .mobile-menu-btn.active span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
@@ -254,28 +260,43 @@ button { cursor: pointer; border: none; font-family: inherit; }
   opacity: 0;
 }
 .hero-title {
-  font-size: clamp(3rem, 8vw, 7rem);
+  font-size: clamp(2rem, 5.5vw, 5rem);
   font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
   color: white;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   opacity: 0;
 }
 .hero-subtitle {
-  font-size: 1.15rem;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
   font-weight: 300;
   color: var(--text-secondary);
-  max-width: 50ch;
+  max-width: 52ch;
   line-height: 1.7;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   opacity: 0;
+}
+.hero-subtitle--strong {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 600;
+  color: white;
+  margin-bottom: 12px;
 }
 .hero-cta-row {
   display: flex;
-  gap: 16px;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
   opacity: 0;
+}
+.hero-trust-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-left: 4px;
 }
 
 /* Scroll Hint */
@@ -1119,162 +1140,251 @@ button { cursor: pointer; border: none; font-family: inherit; }
 }
 
 /* ============================================
-   MOBILE RESPONSIVE
+   RESPONSIVE — Tablet (≤ 1024px)
    ============================================ */
 @media (max-width: 1024px) {
   .solutions-grid { grid-template-columns: repeat(3, 1fr); }
   .porque-grid { grid-template-columns: repeat(3, 1fr); }
   .industrias-grid { grid-template-columns: 1fr 1fr; }
   .industria-card-large { grid-row: auto; min-height: 300px; }
+
+  /* Comprimir nav en tablet */
+  .site-nav { gap: 18px; }
+  .site-header { padding: 12px 20px; }
 }
 
+/* ============================================
+   RESPONSIVE — Mobile (≤ 768px)
+   ============================================ */
 @media (max-width: 768px) {
-  .hero-content-layer { padding: 0 6vw 8vh; align-items: center; }
-  .hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+
+  /* ---- Hero ---- */
+  .hero-canvas-wrapper { height: 150vh; }
+  .hero-content-layer {
+    padding: 0 5vw 10vh;
+    align-items: flex-end;
+  }
+  .hero-title {
+    font-size: clamp(1.75rem, 8vw, 2.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+  .hero-subtitle--strong {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .hero-cta-row { gap: 10px; }
+  .hero-trust-tag { font-size: 0.7rem; }
+  .hero-trust-belt { display: none !important; } /* Ocultar logos on xs */
   .hero-canvas-gradient {
     background: linear-gradient(
       180deg,
-      rgba(13,27,30,0.9) 0%,
-      rgba(13,27,30,0.6) 50%,
-      rgba(13,27,30,0.3) 100%
+      rgba(13,27,30,0.92) 0%,
+      rgba(13,27,30,0.65) 50%,
+      rgba(13,27,30,0.35) 100%
     );
   }
-  /* Reducir altura del canvas wrapper en móvil para mejor WPO */
-  .hero-canvas-wrapper { height: 150vh; }
 
-  .align-left, .align-right {
-    padding-left: 6vw;
-    padding-right: 6vw;
-    justify-content: center;
-  }
-
-  .scroll-section > div {
-    padding: 36px 24px;
-    border-radius: 20px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  /* Reducir altura del scroll container en móvil */
+  /* ---- Scroll container ---- */
   #scroll-container { height: 350vh; }
 
-  /* Optimización WPO: reducir efectos costosos en móvil */
-  .site-header {
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-    background: rgba(10,10,10,0.95);
+  .align-left, .align-right {
+    padding-left: 5vw;
+    padding-right: 5vw;
+    justify-content: center;
   }
-
-  /* Reducir animaciones en móvil para mejor performance */
-  .nebula-bg::before,
-  .nebula-bg::after {
-    animation: none;
-  }
-
-  /* Optimizar scroll sections en móvil */
   .scroll-section > div {
+    padding: 30px 20px;
+    border-radius: 18px;
+    margin: 0 auto;
+    width: calc(100% - 32px);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
-    background: rgba(13,27,30,0.95);
+    background: rgba(13,27,30,0.96);
   }
-
-  /* Reducir will-change en móvil */
-  .hero-canvas-bg {
-    will-change: auto;
+  .section-title {
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
+    line-height: 1.15;
   }
-
-  .solutions-grid { grid-template-columns: 1fr; }
-  .porque-grid { grid-template-columns: 1fr 1fr; }
-  .porque-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
-  .industrias-grid { grid-template-columns: 1fr; }
-  .industria-card-large { min-height: 280px; }
-  .recursos-grid { grid-template-columns: 1fr; }
-  .cta-inner { grid-template-columns: 1fr; gap: 48px; }
-
-  .section-soluciones,
-  .section-porque,
-  .section-industrias,
-  .section-recursos,
-  .section-final-cta { padding: 80px 0; }
-
-  .site-footer { flex-direction: column; gap: 16px; text-align: center; }
-  .marquee-text { font-size: 15vw; }
   .scroll-hint { display: none; }
 
-  .cta-buttons { flex-direction: column; }
-  .btn-whatsapp, .btn-outline-light { width: 100%; justify-content: center; }
-
-  /* Header adjustments for mobile */
+  /* ---- Header móvil — Layout: burger | logo centrado | WA icon ---- */
   .site-header {
-    top: 12px;
-    left: 16px;
-    right: auto;
-    width: calc(100% - 32px);
-    padding: 12px 16px;
-    border-radius: 20px;
+    top: 10px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    padding: 10px 14px;
+    border-radius: 18px;
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    background: rgba(13,27,30,0.88);
     justify-content: space-between;
   }
-  .site-nav {
+
+  /* Burger — visible, izquierda */
+  .mobile-menu-btn {
     display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translateX(-100%);
-    width: 280px;
-    height: 100dvh;
-    background: rgba(13,27,30,0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: -1;
-    border-right: 1px solid rgba(255,255,255,0.08);
+    flex-shrink: 0;
+    order: 0;
+    padding: 6px;
   }
-  .site-nav.open {
-    transform: translateX(0);
-  }
-  .nav-link {
-    font-size: 1.2rem;
-  }
+
+  /* Logo — centrado absolutamente */
   .logo-link {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    order: 1;
   }
-  .mobile-menu-btn {
-    display: flex;
-    order: -1; /* Left */
+  .site-header .logo { height: 26px; }
+
+  /* Nav — drawer lateral */
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-110%);
+    width: min(80vw, 300px);
+    height: 100dvh;
+    background: rgba(8,18,22,0.97);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 40px;
+    gap: 36px;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999;
+    border-right: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 4px 0 40px rgba(0,0,0,0.5);
+    /* Quitar posicionamiento absoluto de desktop */
+    position: fixed !important;
+    left: 0 !important;
+    transform: translateX(-110%) !important;
   }
-  .desktop-cta {
-    display: none;
+  .site-nav.open {
+    transform: translateX(0) !important;
   }
+  .nav-link {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    width: 100%;
+  }
+  .nav-link:hover,
+  .nav-link--active { color: var(--accent); border-color: var(--accent); }
+
+  /* CTA — oculto en móvil */
+  .desktop-cta { display: none !important; }
+
+  /* WhatsApp icon — visible, derecha */
   .mobile-wa-cta {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    background: rgba(37, 211, 102, 0.15);
-    border: 1px solid rgba(37, 211, 102, 0.4);
+    width: 40px;
+    height: 40px;
+    background: rgba(37,211,102,0.12);
+    border: 1.5px solid rgba(37,211,102,0.5);
     border-radius: 50%;
+    color: var(--green-light);
+    flex-shrink: 0;
+    order: 2;
     transition: var(--transition);
-    order: 1; /* Right */
   }
   .mobile-wa-cta:hover {
-    background: var(--green);
-    transform: scale(1.05);
+    background: var(--green-light);
+    color: white;
+    transform: scale(1.08);
   }
-  .mobile-wa-cta svg {
-    width: 20px;
-    height: 20px;
-    fill: var(--green-light);
+  .mobile-wa-cta svg { fill: currentColor; }
+
+  /* ---- Post-scroll sections ---- */
+  .post-title {
+    font-size: clamp(1.6rem, 6.5vw, 2.4rem);
+    line-height: 1.15;
   }
-  .mobile-wa-cta:hover svg {
-    fill: white;
+  .post-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 32px;
   }
+
+  .solutions-grid { grid-template-columns: 1fr; }
+  .porque-grid { grid-template-columns: 1fr 1fr; }
+  .porque-stats { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .industrias-grid { grid-template-columns: 1fr; }
+  .industria-card-large { min-height: 260px; }
+  .recursos-grid { grid-template-columns: 1fr; }
+  .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+
+  /* Category grid — 1 col en xs */
+  .category-grid { grid-template-columns: 1fr !important; }
+  .cat-card-nav { padding: 24px 20px !important; }
+  .cat-card-nav h3 { font-size: 1.15rem !important; }
+
+  /* Urgency section */
+  .urgency-box { padding: 32px 20px !important; }
+  .urgency-list { font-size: 0.95rem !important; }
+  .urgency-text { font-size: 1rem !important; }
+  .urgency-btn { font-size: 0.9rem !important; padding: 14px 24px !important; width: 100%; }
+
+  /* Process steps */
+  .process-steps-new { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+  .process-step-item { padding: 24px 14px !important; }
+  .process-step-item h3 { font-size: 0.9rem !important; }
+
+  /* FAQ */
+  .faq-item { padding: 22px 20px !important; }
+  .faq-item h3 { font-size: 1rem !important; }
+  .faq-item p { font-size: 0.88rem !important; }
+
+  /* Secciones paddings */
+  .section-soluciones,
+  .section-porque,
+  .section-industrias,
+  .section-recursos,
+  .section-final-cta { padding: 64px 0; }
+
+  /* WPO: reducir animaciones costosas */
+  .nebula-bg::before, .nebula-bg::after { animation: none; }
+  .hero-canvas-bg { will-change: auto; }
+  .marquee-text { font-size: 15vw; }
+
+  /* Footer */
+  .site-footer { flex-direction: column; gap: 14px; text-align: center; }
+
+  /* Botones */
+  .cta-buttons { flex-direction: column; }
+  .btn-whatsapp, .btn-outline-light { width: 100%; justify-content: center; }
+  .btn {
+    font-size: 0.82rem;
+    padding: 15px 24px;
+    gap: 8px;
+  }
+
+  /* Trust grid — 2 cols en móvil */
+  .trust-grid { grid-template-columns: 1fr 1fr !important; }
+  .trust-card { padding: 20px !important; }
+}
+
+/* ============================================
+   RESPONSIVE — Extra small (≤ 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .hero-title { font-size: clamp(1.6rem, 8.5vw, 2.2rem); }
+  .process-steps-new { grid-template-columns: 1fr !important; }
+  .porque-grid { grid-template-columns: 1fr !important; }
+  .porque-stats { grid-template-columns: 1fr 1fr; }
+  .trust-grid { grid-template-columns: 1fr 1fr !important; }
 }
 
 /* ============================================
