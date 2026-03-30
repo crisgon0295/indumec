@@ -249,7 +249,13 @@ button { cursor: pointer; border: none; font-family: inherit; }
   padding: 0 5vw 12vh;
   z-index: 3;
 }
-.hero-content { max-width: 680px; position: relative; }
+.hero-content {
+  max-width: 680px;
+  width: 100%;
+  position: relative;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
 .hero-label {
   font-size: 0.75rem;
   font-weight: 600;
@@ -262,11 +268,14 @@ button { cursor: pointer; border: none; font-family: inherit; }
 .hero-title {
   font-size: clamp(2rem, 5.5vw, 5rem);
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: -0.025em;
   color: white;
   margin-bottom: 20px;
   opacity: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 .hero-subtitle {
   font-size: clamp(0.95rem, 2vw, 1.15rem);
@@ -1161,26 +1170,53 @@ button { cursor: pointer; border: none; font-family: inherit; }
   /* ---- Hero ---- */
   .hero-canvas-wrapper { height: 150vh; }
   .hero-content-layer {
-    padding: 0 5vw 10vh;
+    padding: 0 5vw 18vh; /* más espacio inferior para sticky bar */
     align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-content {
+    max-width: 100%;
+    width: 100%;
   }
   .hero-title {
-    font-size: clamp(1.75rem, 8vw, 2.8rem);
-    line-height: 1.1;
+    font-size: clamp(1.5rem, 7.5vw, 2.6rem);
+    line-height: 1.15;
     letter-spacing: -0.02em;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
   }
   .hero-subtitle {
-    font-size: 0.9rem;
-    margin-bottom: 16px;
+    font-size: 0.88rem;
+    margin-bottom: 14px;
+    max-width: 100%;
   }
   .hero-subtitle--strong {
-    font-size: 1rem;
-    margin-bottom: 10px;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
   }
-  .hero-cta-row { gap: 10px; }
-  .hero-trust-tag { font-size: 0.7rem; }
-  .hero-trust-belt { display: none !important; } /* Ocultar logos on xs */
+  /* CTA row: columna, botón full-width, trust tag debajo */
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+  }
+  .hero-cta-row .btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.85rem;
+    padding: 15px 20px;
+  }
+  .hero-trust-tag {
+    font-size: 0.68rem;
+    text-align: center;
+    padding-left: 0;
+    display: block;
+    width: 100%;
+  }
+  .hero-trust-belt { display: none !important; }
   .hero-canvas-gradient {
     background: linear-gradient(
       180deg,
